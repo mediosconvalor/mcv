@@ -234,14 +234,14 @@ const contenedoresPorSucursal = {
     "6m³":   { medidas: "250×160×183 cm",   carga: "Carga Compacta",material: "Metal",          imagen: `${BASE_IMG_URL}/Ags/6.jpg`,     minimoVisitas: 2 }
   },
   queretaro: {
-    "1.1m³": { medidas: "134.4×107.4×137 cm", carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,   minimoVisitas: 1 },
-    "3m³":   { medidas: "185×120×125 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Qro/3.jpg`,     minimoVisitas: 1 },
+    "1.1m³": { medidas: "134.4×107.4×137 cm", carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,   minimoVisitas: 2 },
+    "3m³":   { medidas: "185×120×125 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Qro/3.jpg`,     minimoVisitas: 2 },
     "6m³":   { medidas: "190×200×150 cm",     carga: "Carga Manual", material: "Metal",           imagen: `${BASE_IMG_URL}/Qro/6.jpg`,     minimoVisitas: 2 }
   },
   monterrey: {
-    "1.1m³": { medidas: "134.4×107.4×137 cm", carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,  minimoVisitas: 1 },
-    "1.5m³": { medidas: "140×110×140 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Mty/1_5.jpg`,  minimoVisitas: 1 },
-    "3m³":   { medidas: "185×120×125 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Mty/3.jpg`,     minimoVisitas: 1 },
+    "1.1m³": { medidas: "134.4×107.4×137 cm", carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,  minimoVisitas: 2 },
+    "1.5m³": { medidas: "140×110×140 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Mty/1_5.jpg`,  minimoVisitas: 2 },
+    "3m³":   { medidas: "185×120×125 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Mty/3.jpg`,     minimoVisitas: 2 },
     "6m³":   { medidas: "190×200×150 cm",     carga: "Carga Manual", material: "Metal",           imagen: `${BASE_IMG_URL}/Mty/6.jpg`,     minimoVisitas: 2 }
   }
 };

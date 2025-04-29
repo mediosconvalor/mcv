@@ -222,25 +222,27 @@ function mostrarPopup(ok) {
   pop.style.display = 'flex';
 }
 
-// Mapa de contenedores por sucursal
+// Base de URL para imágenes
+const BASE_IMG_URL = 'https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/contenedores';
+
 const contenedoresPorSucursal = {
   aguascalientes: {
-    "1m³":   { medidas: "N/A",                carga: "Carga Manual", material: "Plástico",        imagen: "/img/Ags/1m3.png",    minimoVisitas: 1 },
-    "1.1m³": { medidas: "134×107×137 cm",      carga: "Carga Manual", material: "Plástico",        imagen: "/img/Ags/1.1m3.png",  minimoVisitas: 1 },
-    "1.5m³": { medidas: "140×110×140 cm",      carga: "Carga Trasera",material: "Plástico (prov)",imagen: "/img/Ags/1.5m3.png", minimoVisitas: 1 },
-    "3m³":   { medidas: "185×120×125 cm",      carga: "Carga Trasera",material: "Acero",           imagen: "/img/Ags/3m3.png",    minimoVisitas: 1 },
-    "6m³":   { medidas: "190×200×150 cm",      carga: "Carga Compacta",material: "Metal",           imagen: "/img/Ags/6m3.png",    minimoVisitas: 2 }
+    "1m³":   { medidas: "N/A",             carga: "Carga Manual", material: "Plástico",         imagen: `${BASE_IMG_URL}/Ags/1.jpg`,     minimoVisitas: 1 },
+    "1.1m³": { medidas: "134×107×137 cm",   carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,   minimoVisitas: 1 },
+    "1.5m³": { medidas: "92.4×157×85 cm",   carga: "Carga Trasera",material: "Acero",           imagen: `${BASE_IMG_URL}/Ags/1_5.jpg`,   minimoVisitas: 1 },
+    "3m³":   { medidas: "185×120×125 cm",   carga: "Carga Trasera",material: "Acero",           imagen: `${BASE_IMG_URL}/Ags/3.jpg`,     minimoVisitas: 1 },
+    "6m³":   { medidas: "250×160×183 cm",   carga: "Carga Compacta",material: "Metal",          imagen: `${BASE_IMG_URL}/Ags/6.jpg`,     minimoVisitas: 2 }
   },
   queretaro: {
-    "1.1m³": { medidas: "134.4×107.4×137 cm",  carga: "Carga Manual", material: "Plástico",        imagen: "/img/Qro/1.1m3.png", minimoVisitas: 1 },
-    "3m³":   { medidas: "185×120×125 cm",      carga: "Carga Manual", material: "Acero",           imagen: "/img/Qro/3m3.png",   minimoVisitas: 1 },
-    "6m³":   { medidas: "190×200×150 cm",      carga: "Carga Manual", material: "Metal",           imagen: "/img/Qro/6m3.png",   minimoVisitas: 2 }
+    "1.1m³": { medidas: "134.4×107.4×137 cm", carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,   minimoVisitas: 1 },
+    "3m³":   { medidas: "185×120×125 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Qro/3.jpg`,     minimoVisitas: 1 },
+    "6m³":   { medidas: "190×200×150 cm",     carga: "Carga Manual", material: "Metal",           imagen: `${BASE_IMG_URL}/Qro/6.jpg`,     minimoVisitas: 2 }
   },
   monterrey: {
-    "1.1m³": { medidas: "134.4×107.4×137 cm",  carga: "Carga Manual", material: "Plástico",        imagen: "/img/Mty/1.1m3.png", minimoVisitas: 1 },
-    "1.5m³": { medidas: "140×110×140 cm",      carga: "Carga Manual", material: "Plástico (prov)",imagen: "/img/Mty/1.5m3.png", minimoVisitas: 1 },
-    "3m³":   { medidas: "185×120×125 cm",      carga: "Carga Manual", material: "Acero",           imagen: "/img/Mty/3m3.png",   minimoVisitas: 1 },
-    "6m³":   { medidas: "190×200×150 cm",      carga: "Carga Manual", material: "Metal",           imagen: "/img/Mty/6m3.png",   minimoVisitas: 2 }
+    "1.1m³": { medidas: "134.4×107.4×137 cm", carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,  minimoVisitas: 1 },
+    "1.5m³": { medidas: "140×110×140 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Mty/1_5.jpg`,  minimoVisitas: 1 },
+    "3m³":   { medidas: "185×120×125 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Mty/3.jpg`,     minimoVisitas: 1 },
+    "6m³":   { medidas: "190×200×150 cm",     carga: "Carga Manual", material: "Metal",           imagen: `${BASE_IMG_URL}/Mty/6.jpg`,     minimoVisitas: 2 }
   }
 };
 
@@ -256,7 +258,6 @@ function fillContenedores() {
 
   Object.entries(conts).forEach(([nombre, info]) => {
     let text = nombre;
-    // Para Ags, etiqueta extra en 6m³
     if (sucursal === 'aguascalientes' && nombre === '6m³') {
       text += ` (${info.carga})`;
     }
@@ -284,14 +285,12 @@ function mostrarInfoContenedor() {
   const info       = (contenedoresPorSucursal[sucursal] || {})[contenedor];
   if (!info) return;
 
-  // Datos
   infoContO.innerHTML = `
     <strong>Medidas:</strong> ${info.medidas}<br>
     <strong>Tipo de carga:</strong> ${info.carga}<br>
     <strong>Material:</strong> ${info.material}<br>
   `;
 
-  // Imagen centrada y proporcional
   const img = document.createElement('img');
   img.src           = info.imagen;
   img.alt           = `Contenedor ${contenedor}`;

@@ -133,7 +133,7 @@ window.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const submitBtn = formO.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
-    submitBtn.textContent = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
     enviarFormulario(Object.fromEntries(new FormData(formO)));
   });
 

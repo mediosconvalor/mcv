@@ -226,25 +226,25 @@ function mostrarPopup(ok) {
 const BASE_IMG_URL = 'https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/contenedores';
 
 const contenedoresPorSucursal = {
-  aguascalientes: {
-    "1m³":   { medidas: "N/A",             carga: "Carga Manual", material: "Plástico",         imagen: `${BASE_IMG_URL}/Ags/1.jpg`,     minimoVisitas: 1 },
-    "1.1m³": { medidas: "134×107×137 cm",   carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,   minimoVisitas: 1 },
-    "1.5m³": { medidas: "92.4×157×85 cm",   carga: "Carga Trasera",material: "Acero",           imagen: `${BASE_IMG_URL}/Ags/1_5.jpg`,   minimoVisitas: 1 },
-    "3m³":   { medidas: "185×120×125 cm",   carga: "Carga Trasera",material: "Acero",           imagen: `${BASE_IMG_URL}/Ags/3.jpg`,     minimoVisitas: 1 },
-    "6m³":   { medidas: "250×160×183 cm",   carga: "Carga Compacta",material: "Metal",          imagen: `${BASE_IMG_URL}/Ags/6.jpg`,     minimoVisitas: 2 }
-  },
-  queretaro: {
-    "1.1m³": { medidas: "134.4×107.4×137 cm", carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,   minimoVisitas: 2 },
-    "3m³":   { medidas: "185×120×125 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Qro/3.jpg`,     minimoVisitas: 2 },
-    "6m³":   { medidas: "190×200×150 cm",     carga: "Carga Manual", material: "Metal",           imagen: `${BASE_IMG_URL}/Qro/6.jpg`,     minimoVisitas: 2 }
-  },
-  monterrey: {
-    "1.1m³": { medidas: "134.4×107.4×137 cm", carga: "Carga Manual", material: "Plástico",        imagen: `${BASE_IMG_URL}/Qro/1_1.jpg`,  minimoVisitas: 2 },
-    "1.5m³": { medidas: "140×110×140 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Mty/1_5.jpg`,  minimoVisitas: 2 },
-    "3m³":   { medidas: "185×120×125 cm",     carga: "Carga Manual", material: "Acero",           imagen: `${BASE_IMG_URL}/Mty/3.jpg`,     minimoVisitas: 2 },
-    "6m³":   { medidas: "190×200×150 cm",     carga: "Carga Manual", material: "Metal",           imagen: `${BASE_IMG_URL}/Mty/6.jpg`,     minimoVisitas: 2 }
-  }
-};
+    aguascalientes: {
+      "1m³":   { medidas:"N/A",           carga:"Carga Manual", material:"Plástico",   imagen:`${BASE_IMG_URL}/Ags/1.jpg`,    minimoVisitas:1 },
+      "1.1m³": { medidas:"134×107×137 cm", carga:"Carga Manual", material:"Plástico",   imagen:`${BASE_IMG_URL}/Ags/1_1.jpg`,  minimoVisitas:1 },
+      "1.5m³": { medidas:"92.4×157×85 cm",  carga:"Carga Trasera",material:"Acero",      imagen:`${BASE_IMG_URL}/Ags/1_5.jpg`,  minimoVisitas:1 },
+      "3m³":   { medidas:"185×120×125 cm",  carga:"Carga Trasera",material:"Acero",      imagen:`${BASE_IMG_URL}/Ags/3.jpg`,    minimoVisitas:1 },
+      "6m³":   { medidas:"250×160×183 cm",  carga:"Carga Compacta",material:"Metal",     imagen:`${BASE_IMG_URL}/Ags/6.jpg`,    minimoVisitas:2 }
+    },
+    queretaro: {
+      "1.1m³": { medidas:"134.4×107.4×137 cm", carga:"Carga Manual", material:"Plástico", imagen:`${BASE_IMG_URL}/Qro/1_1.jpg`, bolsas:"6–8 bolsas",  minimoVisitas:2 },
+      "3m³":   { medidas:"185×120×125 cm",     carga:"Carga Manual", material:"Acero",    imagen:`${BASE_IMG_URL}/Qro/3.jpg`,   bolsas:"16–18 bolsas", minimoVisitas:2 },
+      "6m³":   { medidas:"190×200×150 cm",     carga:"Carga Manual", material:"Metal",    imagen:`${BASE_IMG_URL}/Qro/6.jpg`,   bolsas:"32–36 bolsas", minimoVisitas:2 }
+    },
+    monterrey: {
+      "1.1m³": { medidas:"134.4×107.4×137 cm", carga:"Carga Manual", material:"Plástico", imagen:`${BASE_IMG_URL}/Mty/1_1.jpg`, bolsas:"6–8 bolsas",  minimoVisitas:2 },
+      "1.5m³": { medidas:"140×110×140 cm",     carga:"Carga Manual", material:"Acero",    imagen:`${BASE_IMG_URL}/Mty/1_5.jpg`, bolsas:"8–10 bolsas",  minimoVisitas:2 },
+      "3m³":   { medidas:"185×120×125 cm",     carga:"Carga Manual", material:"Acero",    imagen:`${BASE_IMG_URL}/Mty/3.jpg`,   bolsas:"16–18 bolsas", minimoVisitas:2 },
+      "6m³":   { medidas:"190×200×150 cm",     carga:"Carga Manual", material:"Metal",    imagen:`${BASE_IMG_URL}/Mty/6.jpg`,   bolsas:"32–36 bolsas", minimoVisitas:2 }
+    }
+  };  
 
 const selSucO   = document.querySelector('#formOrdinario select[name="sucursal"]');
 const selContO  = document.querySelector('#formOrdinario select[name="contenedor"]');
@@ -252,66 +252,61 @@ const infoContO = document.getElementById('infoContenedorOrdi');
 const selFreqO  = document.querySelector('#formOrdinario select[name="frecuencia"]');
 
 function fillContenedores() {
-  selContO.innerHTML = '<option value="">Selecciona un contenedor</option>';
-  const sucursal = selSucO.value;
-  const conts    = contenedoresPorSucursal[sucursal] || {};
-
-  Object.entries(conts).forEach(([nombre, info]) => {
-    let text = nombre;
-    if (sucursal === 'aguascalientes' && nombre === '6m³') {
-      text += ` (${info.carga})`;
-    }
-    selContO.append(new Option(text, nombre));
-  });
-}
-
-function actualizarVisitas() {
-  selFreqO.innerHTML = '<option value="">Selecciona visitas</option>';
-  const sucursal   = selSucO.value;
-  const contenedor = selContO.value;
-  if (!contenedor) return;
-
-  const info = (contenedoresPorSucursal[sucursal] || {})[contenedor];
-  const minimo = info?.minimoVisitas || 1;
-  for (let i = minimo; i <= 6; i++) {
-    selFreqO.append(new Option(i, i));
+    selContO.innerHTML = '<option value="">Selecciona un contenedor</option>';
+    const suc = selSucO.value;
+    const conts = contenedoresPorSucursal[suc] || {};
+    Object.entries(conts).forEach(([tamaño, info]) => {
+      let text = tamaño;
+      if (suc==='aguascalientes' && tamaño==='6m³') text+=` (${info.carga})`;
+      selContO.append(new Option(text, tamaño));
+    });
   }
-}
-
-function mostrarInfoContenedor() {
-  infoContO.innerHTML = '';
-  const sucursal   = selSucO.value;
-  const contenedor = selContO.value;
-  const info       = (contenedoresPorSucursal[sucursal] || {})[contenedor];
-  if (!info) return;
-
-  infoContO.innerHTML = `
-    <strong>Medidas:</strong> ${info.medidas}<br>
-    <strong>Tipo de carga:</strong> ${info.carga}<br>
-    <strong>Material:</strong> ${info.material}<br>
-  `;
-
-  const img = document.createElement('img');
-  img.src           = info.imagen;
-  img.alt           = `Contenedor ${contenedor}`;
-  img.style.display = 'block';
-  img.style.margin  = '10px auto 0';
-  img.style.height  = '2.5in';
-  img.style.width   = 'auto';
-  infoContO.appendChild(img);
-}
-
-selSucO.addEventListener('change', () => {
+  
+  function actualizarVisitas() {
+    selFreqO.innerHTML = '<option value="">Selecciona visitas</option>';
+    const suc = selSucO.value;
+    const tam = selContO.value;
+    if(!tam) return;
+    const info = (contenedoresPorSucursal[suc]||{})[tam];
+    const min = info?.minimoVisitas||1;
+    for(let i=min;i<=6;i++) selFreqO.append(new Option(i,i));
+  }
+  
+  function mostrarInfoContenedor() {
+    infoContO.innerHTML = '';
+    const suc = selSucO.value;
+    const tam = selContO.value;
+    const info = (contenedoresPorSucursal[suc]||{})[tam];
+    if(!info) return;
+  
+    let html = `
+      <strong>Medidas:</strong> ${info.medidas}<br>
+      <strong>Tipo de carga:</strong> ${info.carga}<br>
+      <strong>Material:</strong> ${info.material}<br>
+    `;
+    if(info.bolsas) html+=`<strong>Estimado de bolsas:</strong> ${info.bolsas}<br>`;
+    infoContO.innerHTML = html;
+  
+    const img = document.createElement('img');
+    img.src           = info.imagen;
+    img.alt           = `Contenedor ${tam}`;
+    img.style.display = 'block';
+    img.style.margin  = '10px auto 0';
+    img.style.height  = '2.5in';
+    img.style.width   = 'auto';
+    infoContO.appendChild(img);
+  }
+  
+  selSucO.addEventListener('change', ()=>{
+    fillContenedores();
+    infoContO.innerHTML='';
+    selFreqO.innerHTML='<option value="">Selecciona visitas</option>';
+  });
+  selContO.addEventListener('change', ()=>{
+    actualizarVisitas();
+    mostrarInfoContenedor();
+  });
+  
+  // Inicializar
   fillContenedores();
-  infoContO.innerHTML = '';
-  selFreqO.innerHTML  = '<option value="">Selecciona visitas</option>';
-});
-
-selContO.addEventListener('change', () => {
   actualizarVisitas();
-  mostrarInfoContenedor();
-});
-
-// Inicializar al cargar la página
-fillContenedores();
-actualizarVisitas();

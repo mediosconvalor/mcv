@@ -1,4 +1,3 @@
-# dashboard.js
 document.addEventListener('DOMContentLoaded', () => {
   // Resaltar enlace activo
   document.querySelectorAll('.navigation a').forEach(link => {

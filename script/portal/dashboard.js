@@ -1,3 +1,4 @@
+# dashboard.js
 document.addEventListener('DOMContentLoaded', () => {
   // Resaltar enlace activo
   document.querySelectorAll('.navigation a').forEach(link => {
@@ -7,10 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Toggle de tema
-  const toggle = document.getElementById('themeToggle');
-  toggle.addEventListener('click', () => {
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     const mode = document.body.classList.contains('dark') ? 'oscuro' : 'claro';
     document.cookie = "modo=" + mode + "; path=/; max-age=" + (60*60*24*30);
+  });
+
+  // Toggle de menú en móvil
+  const menuToggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('.navigation');
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
   });
 });

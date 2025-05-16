@@ -1,3 +1,4 @@
+/* dashboard.css */
 /* Reset básico */
 * {
   box-sizing: border-box;
@@ -15,11 +16,6 @@ body {
 body.dark {
   background: #2c2f3a;
   color: #e0e1e3;
-}
-
-/* Loader overlay (si lo dejas fijo) */
-.loader-container {
-  /* ya está en loader.css */
 }
 
 /* Header */
@@ -95,11 +91,34 @@ body.dark .main-header {
   margin-bottom: 1rem;
 }
 
+/* Tablas */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+table.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.table th,
+table.table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+table.table th {
+  background: #f0f0f0;
+}
+
 /* Responsive: móvil */
 @media (max-width: 768px) {
   .navigation {
     position: absolute;
-    top: 56px; /* header height */
+    top: 56px;
     right: 0;
     flex-direction: column;
     background: rgba(255,255,255,0.95);
@@ -119,5 +138,4 @@ body.dark .main-header {
   .menu-toggle {
     display: block;
   }
-  /* Oculta el nav por defecto, ya está con display:none */
 }

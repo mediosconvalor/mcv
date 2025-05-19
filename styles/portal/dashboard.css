@@ -139,3 +139,20 @@ table.table th {
     display: block;
   }
 }
+
+nav.menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+}
+
+nav.menu ul li a {
+  text-decoration: none;
+  color: #0099ff;
+  font-weight: bold;
+}
+
+nav.menu ul li a:hover {
+  text-decoration: underline;
+}

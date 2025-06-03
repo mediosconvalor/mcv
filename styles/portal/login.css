@@ -150,17 +150,15 @@ body {
 }
 
 .error-msg {
-  position: absolute;
-  bottom: 110px;
-  right: 40px;
+  position: static; /* cambiar de absolute a static */
   color: #ff4d4d;
   font-weight: 700;
   font-size: 1rem;
-  background: rgba(0,0,0,0.5);
   padding: 0.3rem 0.8rem;
   border-radius: 10px;
   user-select: none;
-  max-width: 380px;
+  max-width: 100%;
+  margin-top: 0.8rem; /* espacio sobre el error */
 }
 
 /* Media Query para móvil */

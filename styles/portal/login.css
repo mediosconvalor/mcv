@@ -195,3 +195,44 @@ body {
     max-height: none;
   }
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.15); /* muy transparente */
+  color: rgba(255, 255, 255, 0.3); /* texto muy tenue */
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.3rem 1rem;
+  user-select: none;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  z-index: 10000;
+  font-family: Arial, sans-serif;
+}
+
+.footer svg {
+  width: 12px;
+  height: 12px;
+  fill: rgba(255, 255, 255, 0.3);
+  vertical-align: middle;
+}
+
+.footer a {
+  color: rgba(144, 238, 144, 0.3); /* verde claro muy tenue */
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 0.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover,
+.footer a:focus {
+  color: rgba(144, 238, 144, 1); /* verde claro visible al hover */
+  text-decoration: underline;
+}

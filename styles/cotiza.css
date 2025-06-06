@@ -1,311 +1,194 @@
-/* Reset y tipografía */
-html, body {
-  height: 100%;
+/* Root & Base */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #eaf7ef;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #e8f5e9, #ffffff);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+  color: #333;
 }
-
-/* Contenedor principal */
 .container {
-  width: 100%;
-  max-width: 500px;
-  padding: 1rem;
-  text-align: center;
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 16px;
 }
-
-/* Logo */
 .logo {
-  width: 120px;
-  margin: 0 auto 1rem;
+  display: block;
+  margin: 0 auto 20px;
+  width: 100px;
+  height: auto;
 }
 
-/* Tarjetas */
+/* Cards and Steps */
 .card {
-  width: 100%;
-  max-width: 420px;         /* ✅ ancho fijo */
-  min-height: 520px;        /* ✅ altura mínima */
-  height: auto;             /* ✅ permite crecer en alto */
-  background: white;
-  padding: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  border: 2px solid #c6f0dd;
+  border-radius: 24px;
+  padding: 24px 32px;
   display: none;
-  flex-direction: column;
-  animation: fadeIn 0.7s ease;
-  transition: all 0.3s ease;
-  overflow: hidden;
 }
-
 .card.active {
-  display: flex;
-}
-
-/* Lista informativa */
-.info-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  margin: 1rem 0;
-}
-
-.info-list li {
-  margin-bottom: 0.5rem;
-}
-
-/* Pasos del formulario */
-.step {
-  display: none;
-  flex-direction: column;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-  flex-grow: 1;
-}
-
-.step.active {
-  display: flex;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Inputs y selects */
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-select {
-  width: 100%;
-  padding: 0.8rem;
-  margin: 1rem 0;
-  border: 1px solid #c8e6c9;
-  border-radius: 0.8rem;
-  font-size: 1rem;
-  transition: border 0.3s;
-  box-sizing: border-box;
-}
-
-input:focus,
-select:focus {
-  border-color: #66bb6a;
-  outline: none;
-}
-
-/* Contenedores de mapa */
-.map-container {
-  width: 100%;
-  height: 200px;
-  margin: 0.5rem 0;
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-.map-container:empty {
-  display: none;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 1rem;
-}
-
-/* Información de contenedor */
-.infoContenedor {
-  background: #f1f8e9;
-  padding: 1rem;
-  border-radius: 1rem;
-  text-align: left;
-  font-size: 0.95rem;
-  margin-top: 1rem;
-}
-
-.infoContenedor img {
-  width: 100%;
-  margin-top: 0.5rem;
-  border-radius: 1rem;
-}
-
-/* Advertencias */
-.advertencia {
-  color: #d32f2f;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-  text-align: left;
   display: block;
 }
 
-/* Botones y navegación */
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step {
+  display: none;
+}
+.step.active {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Form Controls */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 8px;
+  border: 2px solid #3cad66;
+  border-radius: 24px;
+  font-size: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Buttons */
 .buttons {
   display: flex;
-  gap: 1rem;
   justify-content: center;
-  margin-top: 1rem;
+  gap: 20px;
+  margin-top: 24px;
 }
-
 button {
-  padding: 0.8rem 1.5rem;
+  background-color: #3cad66;
+  color: #ffffff;
   border: none;
-  background-color: #43a047;
-  color: white;
-  font-weight: 600;
-  border-radius: 1rem;
+  padding: 12px 32px;
+  border-radius: 24px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #388e3c;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 10px 0;
-  font-size: 0.9rem;
-  background-color: transparent;
-  border-top: 1px solid #e0e0e0;
-  width: 100%;
-}
-
-.footer a {
-  color: #006400;
-  text-decoration: none;
   font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+button:hover:not(:disabled) {
+  background-color: #34a95c;
+}
+button.back {
+  background-color: #f0f0f0;
+  color: #333;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+/* Info Container */
+.infoContenedor {
+  margin-top: 16px;
+  background-color: #f4fff9;
+  padding: 16px;
+  border-left: 4px solid #3cad66;
+  border-radius: 12px;
+  font-size: 14px;
 }
 
-/* Popup de confirmación */
-.popup {
+/* Advertencia */
+.advertencia {
+  color: #e63946;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* File Upload */
+.file-upload {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #f1f1f1;
+  border: 2px dashed #ccc;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.file-upload input {
   display: none;
+}
+
+/* Popup */
+.popup {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100vh;
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
   align-items: center;
-  z-index: 2000;
+  justify-content: center;
 }
-
 .popup-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 24px;
   text-align: center;
-  width: 90%;
-  max-width: 400px;
+  max-width: 90%;
 }
-
 .popup-content h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 48px;
+  margin: 0 0 12px;
 }
-
 .popup-content p {
-  margin-bottom: 1rem;
-  color: #555;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
-.popup-buttons {
-  margin-top: 1rem;
-}
-
-/* Animación fade-in */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Menú flotante de WhatsApp */
+/* WhatsApp Menu */
 .whatsapp-menu {
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 20px;
+  right: 20px;
   z-index: 1000;
 }
-
-#waToggle {
+.whatsapp-menu button {
   background-color: #25D366;
   border: none;
   border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 14px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
-#waToggle i {
-  font-size: 28px;
-  color: white;
+.whatsapp-menu button i {
+  color: #ffffff;
+  font-size: 24px;
 }
-
 .whatsapp-list {
   display: none;
   list-style: none;
-  margin: 0.5rem 0 0;
+  margin: 8px 0 0;
   padding: 0;
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
 .whatsapp-list li {
-  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-top: 8px;
   cursor: pointer;
-  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
 }
-
 .whatsapp-list li:hover {
-  background: #f1f1f1;
+  background-color: #f0f0f0;
 }
 
-/* Estilo para el upload personalizado */
-.file-upload {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1.2rem;
-  background-color: #388e3c;
-  color: white;
-  font-weight: 600;
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.file-upload:hover {
-  background-color: #43a047;
-}
-
-.file-upload input[type="file"] {
-  display: none;
-}
-
-.file-upload i {
-  font-size: 1.2rem;
-}
-
-/* Responsive: en pantallas muy bajas, deja que crezca */
-@media (max-height: 700px) {
-  .card {
-    height: auto;
-    min-height: 460px;
-  }
+/* Map Container */
+.map-container {
+  margin-top: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #c6f0dd;
 }

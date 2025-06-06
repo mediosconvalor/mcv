@@ -1,3 +1,4 @@
+/* Reset y base */
 html, body {
   margin: 0;
   padding: 0;
@@ -55,6 +56,7 @@ body {
   font-weight: 600;
 }
 
+/* Contenedor formulario y botón google */
 .login-wrapper-container {
   position: absolute;
   bottom: 120px;
@@ -65,13 +67,38 @@ body {
   border-radius: 40px;
   box-shadow: 0 0 12px rgba(0,0,0,0.3);
   padding: 1rem 1.5rem;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   user-select: none;
-  max-height: 280px;
+  max-height: none;
   box-sizing: border-box;
+}
+
+/* Botón Google justo arriba del formulario */
+.google-btn {
+  background: white;
+  color: #444;
+  border: 1px solid #ccc;
+  padding: 10px 24px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 0 auto;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.google-btn:hover,
+.google-btn:focus {
+  background: #f1f1f1;
+  outline: none;
 }
 
 .login-wrapper {

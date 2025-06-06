@@ -227,11 +227,10 @@ const BASE_IMG_URL = 'https://raw.githubusercontent.com/mediosconvalor/mcv/refs/
 
 const contenedoresPorSucursal = {
     aguascalientes: {
-      "1m³":   { medidas:"N/A",           carga:"Carga Manual", material:"Plástico",   imagen:`${BASE_IMG_URL}/Ags/1.jpg`,    minimoVisitas:1 },
-      "1.1m³": { medidas:"134×107×137 cm", carga:"Carga Manual", material:"Plástico",   imagen:`${BASE_IMG_URL}/Ags/1_1.jpg`,  minimoVisitas:1 },
-      "1.5m³": { medidas:"92.4×157×85 cm",  carga:"Carga Trasera",material:"Acero",      imagen:`${BASE_IMG_URL}/Ags/1_5.jpg`,  minimoVisitas:1 },
-      "3m³":   { medidas:"185×120×125 cm",  carga:"Carga Trasera",material:"Acero",      imagen:`${BASE_IMG_URL}/Ags/3.jpg`,    minimoVisitas:1 },
-      "6m³":   { medidas:"250×160×183 cm",  carga:"Carga Compacta",material:"Metal",     imagen:`${BASE_IMG_URL}/Ags/6.jpg`,    minimoVisitas:2 }
+      "1.1m³": { medidas:"134×107×137 cm", carga:"Carga Manual", material:"Plástico",   imagen:`${BASE_IMG_URL}/Ags/1_1.png`,  minimoVisitas:1 },
+      "1.5m³": { medidas:"160x135x100 cm",  carga:"Carga Trasera",material:"Acero",      imagen:`${BASE_IMG_URL}/Ags/1_5.jpg`,  minimoVisitas:1 },
+      "3m³":   { medidas:"152x125x135 cm",  carga:"Carga Trasera",material:"Acero",      imagen:`${BASE_IMG_URL}/Ags/3.jpg`,    minimoVisitas:1 },
+      "6m³":   { medidas:"160x195x255 cm",  carga:"Carga Trasera",material:"Metal",     imagen:`${BASE_IMG_URL}/Ags/6.jpg`,    minimoVisitas:2 }
     },
     queretaro: {
       "1.1m³": { medidas:"134.4×107.4×137 cm", carga:"Carga Manual", material:"Plástico", imagen:`${BASE_IMG_URL}/Qro/1_1.jpg`, bolsas:"6–8 bolsas",  minimoVisitas:2 },
@@ -257,7 +256,7 @@ function fillContenedores() {
     const conts = contenedoresPorSucursal[suc] || {};
     Object.entries(conts).forEach(([tamaño, info]) => {
       let text = tamaño;
-      if (suc==='aguascalientes' && tamaño==='6m³') text+=` (${info.carga})`;
+      if (suc==='aguascalientes' && tamaño==='6m³');
       selContO.append(new Option(text, tamaño));
     });
   }

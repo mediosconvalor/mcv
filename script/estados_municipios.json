@@ -7,6 +7,7 @@
     "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"
   ],
   "municipios": {
+  "Selecciona una opción...": [],
   "Aguascalientes": ["Aguascalientes","Asientos","Calvillo","Cosío","Jesús María","Pabellón de Arteaga","Rincón de Romos","San José de Gracia","Tepezalá","El Llano"],
   "Baja California": ["Ensenada","Mexicali","Tecate","Tijuana","Playas de Rosarito"],
   "Baja California Sur": ["Comondú","La Paz","Loreto","Los Cabos","Mulegé"],

@@ -212,7 +212,7 @@ const estadosMunicipiosMX = {
         currentStep = detectarPasoDesdeDatos(data);
         form.style.display = "block";
         cargarDatos();
-        aplicarTipoPersonaGuardado();              // ← Reaplica tipo y botones
+        aplicarTipoPersonaGuardado();
         showStep(currentStep);
         mostrarBotonBorrarSiAplica(data);
         mostrarModal = false;
@@ -455,7 +455,7 @@ const estadosMunicipiosMX = {
       .catch(() => mostrarError("Hubo un problema de conexión con el servidor."))
       .finally(() => {
         btnEnviar.disabled = false;
-        btnEnviar.textContent = "Enviando...";
+        btnEnviar.textContent = "Enviar";
       });
   });
 

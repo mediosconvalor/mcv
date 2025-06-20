@@ -443,21 +443,21 @@ footer a.no-link:hover {
 #modal-inicio .toggle-btn {
   background: #222;
   color: #ccc;
-  border: 2px solid #00ff7f;
+  border: 2px solid #26d954;
 }
 
 #modal-inicio .toggle-btn:hover {
-  background: #00ff7f;
+  background: #26d954;
   color: #000;
 }
 
 #modal-inicio .toggle-btn.active {
-  background: #00ff7f;
+  background: #26d954;
   color: #000;
 }
 
 #modal-inicio .toggle-btn.active:hover {
-  background: #009f5f;
+  background: #26d954;
   color: #fff;
 }
 

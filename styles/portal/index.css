@@ -1,5 +1,7 @@
-/* Hero de bienvenida a pantalla completa */
+/* assets/css/index.css */
+
 .dashboard-hero {
+  background: url('https://mediosconvalor.github.io/img/background/welcome_portal.png') center/cover no-repeat;
   height: 100vh;
   display: flex;
   flex-direction: column;

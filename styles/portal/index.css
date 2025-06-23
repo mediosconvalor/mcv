@@ -1,0 +1,26 @@
+/* Hero de bienvenida a pantalla completa */
+.dashboard-hero {
+  background: url('../img/tu-imagen-de-fondo.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard-hero__title {
+  color: var(--mcvl-green);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-hero__rol {
+  color: var(--mcvl-gray);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-hero__subtitle {
+  color: #333;
+}

@@ -1,77 +1,68 @@
-/* Reset / base */
+/* assets/css/style.css */
+
+/* Variables de marca */
+:root {
+  --mcvl-dark:   #0d1b2a;
+  --mcvl-light:  #f5f5f5;
+  --mcvl-green:  #00ff33;
+  --mcvl-gray:   #555;
+  --font-sans:   'Roboto', sans-serif;
+}
+
+/* Reset & box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Variables de marca */
-:root {
-  --mcvl-green: #00ff33;
-  --mcvl-dark: #0d1b2a;
-  --mcvl-light: #f5f5f5;
-  --mcvl-gray:  #555;
-  --font-sans: 'Roboto', sans-serif;
-}
-
-/* Tipografía global */
+/* Tipografía base */
 body {
   font-family: var(--font-sans);
   background: var(--mcvl-light);
   color: var(--mcvl-dark);
+  line-height: 1.5;
 }
 
-/* MENÚ GLOBAL */
-.navbar {
+/* SIDEBAR GLOBAL */
+.sidebar {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  background: var(--mcvl-green);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  z-index: 1000;
-}
-
-.navbar__logo img {
-  height: 2rem;
-}
-
-.navbar__toggle {
-  cursor: pointer;
-  width: 2rem; height: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.navbar__toggle span {
-  display: block;
-  height: 0.2rem;
-  background: var(--mcvl-dark);
-  border-radius: 1px;
-}
-
-/* Menú desplegable */
-.navbar__menu {
-  position: fixed;
-  left: -250px; top: 0;
-  width: 250px; height: 100vh;
-  background: rgba(255,255,255,0.9);
-  padding: 2rem 1rem;
-  transition: left 0.3s ease;
-}
-.navbar__menu.open {
+  top: 0;
   left: 0;
+  width: 240px;
+  height: 100vh;
+  background: var(--mcvl-dark);
+  padding-top: 2rem;
 }
-.navbar__menu ul {
+
+.sidebar__list {
   list-style: none;
 }
-.navbar__menu li + li {
+
+.sidebar__item + .sidebar__item {
   margin-top: 1rem;
 }
-.navbar__menu a {
+
+.sidebar__link {
+  display: block;
   text-decoration: none;
-  color: var(--mcvl-dark);
+  color: var(--mcvl-light);
+  padding: 0.75rem 1rem;
   font-weight: 500;
+}
+
+.sidebar__link:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.sidebar__badge {
+  margin-left: 0.5rem;
+  color: var(--mcvl-green);
+  font-weight: bold;
+}
+
+/* CONTENIDO PRINCIPAL (movido a la derecha) */
+.content {
+  margin-left: 240px;
+  padding: 2rem;
 }

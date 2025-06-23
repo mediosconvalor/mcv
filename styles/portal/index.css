@@ -1,6 +1,5 @@
 /* Hero de bienvenida a pantalla completa */
 .dashboard-hero {
-  background: url('https://mediosconvalor.github.io/mcv/img/background/welcome_portal.png') center/cover no-repeat;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,4 +22,5 @@
 
 .dashboard-hero__subtitle {
   color: #333;
+  font-size: 1rem;
 }

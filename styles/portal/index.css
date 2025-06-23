@@ -3,7 +3,7 @@
 /* Hero de bienvenida a pantalla completa */
 .dashboard-hero {
   /* Carga correcta de la imagen de fondo */
-  background-image: url('https://mediosconvalor.github.io/mcv/img/background/welcome_portal.png');
+  background-image: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

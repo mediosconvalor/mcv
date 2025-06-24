@@ -1,17 +1,14 @@
 /* assets/css/index.css */
 
-/* Hero de bienvenida a pantalla completa */
+/* Hero de pantalla completa */
 .dashboard-hero {
   position: relative;
   width: 100%;
   height: 100vh;
-
-  /* imagen fija y full-bleed */
   background-image: url('https://mediosconvalor.github.io/mcv/img/background/welcome_portal.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,17 +16,16 @@
   text-align: center;
 }
 
-/* Overlay para oscurecer un poco el fondo */
+/* Overlay semitransparente */
 .dashboard-hero::before {
   content: '';
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  inset: 0;
+  background-color: rgba(0,0,0,0.4);
   z-index: 0;
 }
 
-/* Texto encima del overlay */
+/* Texto encima */
 .dashboard-hero * {
   position: relative;
   z-index: 1;
@@ -37,18 +33,16 @@
 
 .dashboard-hero__title {
   color: var(--mcvl-green);
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 1rem;
 }
-
 .dashboard-hero__rol {
   color: var(--mcvl-gray);
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   margin-bottom: 0.5rem;
 }
-
 .dashboard-hero__subtitle {
   color: #fff;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 2vw, 1rem);
   opacity: 0.9;
 }

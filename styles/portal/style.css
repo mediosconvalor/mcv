@@ -1,23 +1,26 @@
-/* — Footer fijo y alineado — */
+/* footer ya existente */
 .footer {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 240px;               /* sigue respetando el sidebar */
+  width: calc(100% - 240px);
   background: var(--mcvl-light);
-  text-align: center;
+  text-align: center;        /* centrará texto en el wrapper */
   color: var(--mcvl-gray);
   font-size: 0.9rem;
-  width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0;                /* quitamos padding aquí, lo movemos al inner */
   box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
   z-index: 1000;
 }
-@media (min-width: 769px) {
-  .footer {
-    left: 240px;
-    width: calc(100% - 240px);
-  }
+
+/* nuevo: contenedor centrado */
+.footer__inner {
+  max-width: 900px;         /* o el ancho de tu contenedor principal */
+  margin: 0 auto;
+  padding: 0.75rem 1rem;    /* recupera el espacio interno */
 }
+
+/* enlaces, igual que antes */
 .footer a {
   color: inherit;
   text-decoration: none;

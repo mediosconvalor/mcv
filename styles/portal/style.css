@@ -33,28 +33,30 @@ body {
   padding-top: 1rem;
   transition: transform 0.3s ease;
   transform: translateX(0);
+  z-index: 1000;
 }
 
 .sidebar.collapsed {
   transform: translateX(-240px);
 }
 
-/* Botón toggle (dentro del sidebar) */
+/* Toggle siempre visible */
 .sidebar__toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
   background: none;
   border: none;
   color: var(--mcvl-light);
   font-size: 1.5rem;
-  padding: 0.5rem 1rem;
   cursor: pointer;
-  width: 100%;
-  text-align: left;
+  z-index: 1001;
 }
 
 /* Lista de enlaces */
 .sidebar__list {
   list-style: none;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .sidebar__item + .sidebar__item {
@@ -82,10 +84,31 @@ body {
 /* ZONA DE CONTENIDO */
 .content {
   margin-left: 240px;
-  padding: 2rem;
+  /* padding: 2rem; */ /* comentado para que el héroe pueda “bleed” */
   transition: margin-left 0.3s ease;
 }
 
 .content.expanded {
   margin-left: 0;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--mcvl-gray);
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.footer a:hover {
+  opacity: 1;
+  color: var(--mcvl-green);
+  text-decoration: none;
 }

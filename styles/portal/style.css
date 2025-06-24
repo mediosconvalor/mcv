@@ -39,6 +39,16 @@ body.sidebar-open .hamburger {
   display: none;
 }
 
+.sidebar__brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.sidebar__brand img {
+  max-width: 80%;
+  height: auto;
+  display: inline-block;
+}
+
 /* logo */
 .brand {
   width:8rem; z-index:11;

@@ -81,6 +81,10 @@ body {
 }
 
 /* — Lista de enlaces — */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
 .sidebar__list {
   list-style: none;
   margin-top: 4rem;

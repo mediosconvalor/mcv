@@ -11,9 +11,7 @@
 
 /* — Reset — */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
 /* — Tipografía base — */
@@ -31,7 +29,6 @@ body {
   width: 240px; height: 100vh;
   background: rgba(13,27,42,0.8);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 1000;
@@ -40,7 +37,7 @@ body {
   transform: translateX(0);
 }
 
-/* — Toggle — */
+/* — Toggle (¡siempre visible!) — */
 .sidebar__toggle {
   position: fixed;
   top: 1rem; left: 1rem;
@@ -92,20 +89,38 @@ body {
 .content {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* deja espacio para el footer*/
+  padding-bottom: 3rem;
   z-index: 0;
 }
 
-/* — Footer — */
+/* En escritorio deja margen interior si quieres */
+@media(min-width:769px) {
+  .content {
+    margin-left: 240px;
+  }
+}
+
+/* — Footer fijo y alineado — */
 .footer {
-  margin-top: auto;
-  padding: 1rem;
+  position: fixed;
+  bottom: 0; left: 0;
   background: var(--mcvl-light);
   text-align: center;
   color: var(--mcvl-gray);
   font-size: 0.9rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+@media(min-width:769px) {
+  .footer {
+    left: 240px;
+    width: calc(100% - 240px);
+  }
 }
 .footer a {
   color: inherit;

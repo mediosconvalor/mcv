@@ -9,9 +9,11 @@
   --font-sans:   'Roboto', sans-serif;
 }
 
-/* — Reset & Box-sizing — */
+/* — Reset — */
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* — Tipografía base — */
@@ -19,71 +21,49 @@ body {
   font-family: var(--font-sans);
   background: var(--mcvl-light);
   color: var(--mcvl-dark);
-  line-height: 1.5;
   overflow-x: hidden;
 }
 
-/* — Layout principal — */
-.app {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-/* — Sidebar — */
+/* — Sidebar off-canvas — */
 .sidebar {
   position: fixed;
   top: 0; left: 0;
   width: 240px; height: 100vh;
-  background: rgba(13,27,42,0.6);
-  backdrop-filter: blur(8px);
-  z-index: 1000;
-  transform: translateX(0);
+  background: rgba(13,27,42,0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: translateX(-100%);
   transition: transform 0.3s ease;
+  z-index: 1000;
+}
+.sidebar.open {
+  transform: translateX(0);
 }
 
-/* Off-canvas en móvil */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-  .sidebar.open {
-    transform: translateX(0);
-  }
-}
-
-/* Siempre visible en escritorio */
-@media (min-width: 769px) {
-  .sidebar {
-    transform: translateX(0);
-  }
-}
-
-/* — Toggle Button — */
+/* — Toggle — */
 .sidebar__toggle {
   position: fixed;
   top: 1rem; left: 1rem;
-  background: rgba(255,255,255,0.2);
+  width: 2.5rem; height: 2.5rem;
+  background: var(--mcvl-light);
   border: none;
   border-radius: 50%;
-  width: 2.5rem; height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--mcvl-light);
-  font-size: 1.25rem;
   cursor: pointer;
   z-index: 1001;
 }
-
-/* Ocultar toggle en escritorio */
-@media (min-width: 769px) {
-  .sidebar__toggle {
-    display: none;
-  }
+.sidebar__toggle span {
+  display: block;
+  width: 1.2rem;
+  height: 0.2rem;
+  background: var(--mcvl-dark);
+  margin: 0.25rem 0;
+  border-radius: 1px;
 }
 
-/* — Links del sidebar — */
+/* — Lista de enlaces — */
 .sidebar__list {
   list-style: none;
   margin-top: 4rem;
@@ -108,19 +88,14 @@ body {
   font-weight: bold;
 }
 
-/* — Zona de contenido — */
+/* — Contenido principal siempre full-width — */
 .content {
-  flex: 1;
-  margin-left: 0;    /* nunca empuja al abrir el menú */
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-/* En escritorio, deja espacio al sidebar */
-@media (min-width: 769px) {
-  .content {
-    margin-left: 240px;
-  }
+  z-index: 0;
 }
 
 /* — Footer — */

@@ -1,3 +1,97 @@
+:root {
+  --green:    #39FF14;
+  --white:    #fff;
+  --dark:     rgba(0,0,0,0.6);
+  --light-bg: rgba(255,255,255,0.9);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body, html { height:100%; width:100%; overflow:hidden; position:relative; }
+
+/* fondo */
+body {
+  background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
+              center/cover no-repeat;
+}
+
+/* overlay */
+.overlay {
+  position:absolute; inset:0;
+  background:var(--dark);
+  z-index:1;
+}
+
+/* header */
+.site-header {
+  position:absolute;
+  top:1rem; left:1rem; right:1rem;
+  display:flex; justify-content:space-between; align-items:center;
+  z-index:10;
+}
+
+/* hamburguesa */
+.hamburger {
+  width:2.5rem; height:2.5rem;
+  background: url('https://mediosconvalor.github.io/mcv/img/icons/menu.svg')
+              center/contain no-repeat;
+  border:none; cursor:pointer; z-index:11;
+}
+
+/* logo */
+.brand {
+  width:8rem; z-index:11;
+}
+
+/* sidebar */
+.sidebar {
+  position:absolute; top:0; bottom:0; left:-260px;
+  width:260px;
+  background:var(--light-bg);
+  backdrop-filter:blur(8px);
+  border-top-right-radius:1rem;
+  border-bottom-right-radius:1rem;
+  padding:2rem 1rem;
+  transition:left .3s ease;
+  z-index:9;
+}
+.sidebar.open { left:0; }
+
+/* cerrar sidebar */
+.sidebar__close {
+  position:absolute; top:1rem; right:1rem;
+  width:1.5rem; height:1.5rem;
+  background: url('https://mediosconvalor.github.io/mcv/img/icons/close.svg')
+              center/contain no-repeat;
+  border:none; cursor:pointer;
+}
+
+/* lista del menú */
+.sidebar ul { list-style:none; margin-top:4rem; }
+.sidebar li + li { margin-top:1.5rem; }
+.sidebar a {
+  text-decoration:none; color:#333;
+  font-size:1rem; font-weight:500;
+}
+
+/* contenido welcome */
+.welcome {
+  position:absolute; inset:0;
+  z-index:5;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; color:var(--white);
+  padding:1rem;
+}
+.welcome__logo {
+  width:200px; margin-bottom:2rem;
+}
+.welcome__title {
+  font-size:clamp(2.5rem,6vw,5rem);
+  color:var(--green); margin-bottom:.5rem; line-height:1.1;
+}
+.welcome__role {
+  font-size:1.25rem; font-weight:500;
+}
+
 /* footer */
 .footer {
   position: fixed;

@@ -227,3 +227,81 @@ body.sidebar-open .hamburger {
   display: none !important;
   }
 }
+
+/* ===== Selector de apps (modal) ===== */
+.selector-modal {
+  position: fixed;
+  inset: 0;                         /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.6);   /* semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;                    /* por encima de overlay, sidebar, header… */
+}
+
+.selector-modal.hidden {
+  display: none !important;
+}
+
+.selector-content {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 360px;
+  width: 90%;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.selector-content h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.selector-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selector-content ul li {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.selector-content ul li:hover {
+  background: #f5f5f5;
+}
+
+.selector-content button {
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Aseguramos que el grid de apps pueda hacer scroll en móvil */
+.apps-wrapper {
+  position: relative;
+}
+.apps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 250px); /* ajusta según header+footer */
+}

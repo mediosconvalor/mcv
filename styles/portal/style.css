@@ -67,12 +67,11 @@ body {
   cursor: pointer;
   z-index: 11;
 }
-/* Oculta la hamburguesa cuando el sidebar está abierto */
 body.sidebar-open .hamburger {
   display: none;
 }
 
-/* Logo dentro del header (si lo incluyes) */
+/* Logo dentro del header */
 .site-header .brand {
   height: 2rem;
   width: auto;
@@ -194,19 +193,16 @@ body.sidebar-open .hamburger {
 
 /* ===== Responsive (móvil) ===== */
 @media (max-width: 599px) {
-  /* permitir scroll vertical */
   html, body {
     height: auto;
     overflow-y: auto;
   }
-  /* separar welcome del footer para el grid */
   .welcome {
     position: relative !important;
     inset: auto !important;
     height: auto;
     padding: 2rem 1rem 1rem;
   }
-  /* apps-grid fluye en móvil */
   .apps-grid {
     position: relative;
     bottom: auto;

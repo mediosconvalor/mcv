@@ -1,8 +1,11 @@
 :root {
+  /* Colores */
   --green:        #39FF14;
   --white:        #fff;
   --dark:         rgba(0,0,0,0.6);
   --light-bg:     rgba(255,255,255,0.9);
+
+  /* Tipografías */
   --font-body:    'Mulish', sans-serif;
   --font-heading: 'Orbitron', sans-serif;
 }
@@ -28,32 +31,67 @@ body, html {
   position: relative;
 }
 
-/* overlay */
+/* ===== Fondo de bienvenida ===== */
+body {
+  background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
+              center/cover no-repeat;
+}
+
+/* ===== Capa semitransparente ===== */
 .overlay {
-  position:absolute; inset:0;
-  background:var(--dark);
-  z-index:1;
+  position: absolute;
+  inset: 0;
+  background: var(--dark);
+  z-index: 1;
 }
 
-/* header */
+/* ===== Header ===== */
 .site-header {
-  position:absolute;
-  top:1rem; left:1rem; right:1rem;
-  display:flex; justify-content:space-between; align-items:center;
-  z-index:10;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
 }
 
-/* hamburguesa */
+/* Botón hamburguesa */
 .hamburger {
-  width:2.5rem; height:2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background: url('https://mediosconvalor.github.io/mcv/img/icons/menu.svg')
               center/contain no-repeat;
-  border:none; cursor:pointer; z-index:11;
+  border: none;
+  cursor: pointer;
+  z-index: 11;
 }
+/* Oculta la hamburguesa cuando el sidebar está abierto */
 body.sidebar-open .hamburger {
   display: none;
 }
 
+/* ===== Sidebar ===== */
+.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -260px;
+  width: 260px;
+  background: var(--light-bg);
+  backdrop-filter: blur(8px);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 2rem 1rem;
+  transition: left .3s ease;
+  z-index: 9;
+}
+.sidebar.open {
+  left: 0;
+}
+
+/* Logo dentro del sidebar */
 .sidebar__brand {
   text-align: center;
   margin-bottom: 2rem;
@@ -64,47 +102,36 @@ body.sidebar-open .hamburger {
   display: inline-block;
 }
 
-/* logo */
-.brand {
-  width:8rem; z-index:11;
-}
-
-/* sidebar */
-.sidebar {
-  position:absolute; top:0; bottom:0; left:-260px;
-  width:260px;
-  background:var(--light-bg);
-  backdrop-filter:blur(8px);
-  border-top-right-radius:1rem;
-  border-bottom-right-radius:1rem;
-  padding:2rem 1rem;
-  transition:left .3s ease;
-  z-index:9;
-}
-.sidebar.open { left:0; }
-
-/* cerrar sidebar */
+/* Botón de cerrar */
 .sidebar__close {
   position: absolute;
   top: 1rem;
   right: 1rem;
   width: 1.5rem;
   height: 1.5rem;
-  background: url('https://mediosconvalor.github.io/mcv/img/icons/close.svg') center/contain no-repeat;
+  background: url('https://mediosconvalor.github.io/mcv/img/icons/close.svg')
+              center/contain no-repeat;
   border: none;
   cursor: pointer;
   z-index: 12;
 }
 
-/* lista del menú */
-.sidebar ul { list-style:none; margin-top:4rem; }
-.sidebar li + li { margin-top:1.5rem; }
+/* Lista del menú */
+.sidebar ul {
+  list-style: none;
+  margin-top: 4rem;
+}
+.sidebar li + li {
+  margin-top: 1.5rem;
+}
 .sidebar a {
-  text-decoration:none; color:#333;
-  font-size:1rem; font-weight:500;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-/* contenido welcome */
+/* ===== Contenido de bienvenida ===== */
 .welcome {
   position: absolute;
   inset: 0;
@@ -114,50 +141,43 @@ body.sidebar-open .hamburger {
   justify-content: center;
   text-align: center;
   color: var(--white);
-  z-index: 5;              /* encima del overlay */
+  z-index: 5;
   padding: 1rem;
 }
-
 .welcome__logo {
   width: 200px;
   margin-bottom: 2rem;
 }
-
 .welcome__title {
   font-size: clamp(2.5rem, 6vw, 5rem);
   color: var(--green);
   margin-bottom: 0.5rem;
   line-height: 1.1;
 }
-
 .welcome__role {
   font-size: 1.25rem;
   font-weight: 500;
 }
 
-/* footer */
+/* ===== Footer ===== */
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--mcvl-light);
-  color: var(--mcvl-gray);
+  background: var(--light-bg);
+  color: #666;
   font-size: 0.9rem;
   text-align: center;
   padding: 0;
   box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
   z-index: 1000;
 }
-
-/* contenedor centrado */
 .footer__inner {
   max-width: 900px;
   margin: 0 auto;
   padding: 0.75rem 1rem;
 }
-
-/* enlaces */
 .footer a {
   color: inherit;
   text-decoration: none;
@@ -166,5 +186,5 @@ body.sidebar-open .hamburger {
 }
 .footer a:hover {
   opacity: 1;
-  color: var(--mcvl-green);
+  color: var(--green);
 }

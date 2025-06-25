@@ -34,7 +34,7 @@ body {
 
 /* ===== Responsive (móvil) ===== */
 @media (max-width: 599px) {
-  /* permitir scroll vertical de la página */
+  /* permitir scroll vertical */
   html, body {
     height: auto;
     overflow-y: auto;
@@ -51,6 +51,8 @@ body {
   /* apps-grid fluye en móvil */
   .apps-grid {
     position: relative;
+    bottom: auto;
+    transform: none;
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
@@ -64,14 +66,13 @@ body {
     height: 4rem;
   }
 
-  /* Hacemos que el sidebar llegue hasta abajo */
+  /* ajustar la altura del sidebar para que no tape el footer */
   .sidebar {
-    bottom: 0 !important;    /* ¡a pie de pantalla! */
-    top:    0;
-    overflow-y: auto;        /* scroll interno si hay mucho contenido */
+    bottom: 4rem;      /* deja 4rem libres para el footer */
+    overflow-y: auto;  /* si excede, scroll interno */
   }
 
-  /* ocultar modales y elementos con .hidden */
+  /* ocultar modales abiertos */
   .hidden {
     display: none !important;
   }

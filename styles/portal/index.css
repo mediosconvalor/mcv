@@ -11,22 +11,19 @@ body {
   background: none !important;
 }
 
-/* Contenedor del grid para posicionarlo */
-.apps-wrapper {
-  position: relative;
-}
-
 /* Grid de apps en desktop */
-.apps-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  position: absolute;
-  bottom: 4rem;         /* justo encima del footer */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
+@media (min-width: 600px) {
+  .apps-grid {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    z-index: 15;  /* Subido para quedar encima del .welcome */
+  }
 }
 
 /* Grid de apps en móvil */
@@ -36,10 +33,10 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;  /* separa del welcome y del footer */
+    margin: 2rem auto 4rem;
     justify-content: center;
+    z-index: 5;
   }
-  /* El “+” abarca ambas columnas y se centra */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;
@@ -55,6 +52,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   transition: transform 0.2s;
 }
 .app-btn img {
@@ -72,10 +70,10 @@ body {
   color: var(--green);
   border: 2px dashed var(--green);
   background: rgba(255,255,255,0.9);
-  margin: 0 auto;       /* centra en desktop también */
+  margin: 0 auto;
 }
 
-/* Ajuste fino: bajar logo 5px */
+/* Ajuste fino: bajar logo */
 .welcome__logo {
   margin-top: 5px;
 }

@@ -38,7 +38,7 @@ body {
 
 /* ===== Capa semitransparente ===== */
 .overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: var(--dark);
   z-index: 1;

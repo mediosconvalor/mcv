@@ -32,54 +32,47 @@ body {
   }
 }
 
-/* =========== Móvil: grid fluye en columnas =========== */
+/* ===== Responsive (móvil) ===== */
 @media (max-width: 599px) {
+  /* permitir scroll vertical de la página */
+  html, body {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  /* separar welcome del footer para el grid */
+  .welcome {
+    position: relative !important;
+    inset: auto !important;
+    height: auto;
+    padding: 2rem 1rem 1rem;
+  }
+
+  /* apps-grid fluye en móvil */
   .apps-grid {
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;
+    margin: 1rem auto 4rem;
     justify-content: center;
     z-index: 5;
+    overflow-y: auto;
   }
-  .apps-grid .app-btn.add-app {
-    grid-column: 1 / -1;
-    justify-self: center;
+  .app-btn {
+    width: 4rem;
+    height: 4rem;
   }
-}
 
-/* ===== Botones comunes ===== */
-.app-btn {
-  width: 4rem;
-  height: 4rem;
-  background: rgba(255,255,255,0.9);
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-.app-btn img {
-  width: 3rem;
-  height: 3rem;
-}
-.app-btn:hover {
-  transform: scale(1.1);
-}
+  /* Hacemos que el sidebar llegue hasta abajo */
+  .sidebar {
+    bottom: 0 !important;    /* ¡a pie de pantalla! */
+    top:    0;
+    overflow-y: auto;        /* scroll interno si hay mucho contenido */
+  }
 
-/* ===== Botón “+” ===== */
-.app-btn.add-app {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--green);
-  border: 2px dashed var(--green);
-  background: rgba(255,255,255,0.9);
-  margin: 0 auto;
-}
-
-/* ===== Ajuste fino logo ===== */
-.welcome__logo {
-  margin-top: 20px;
+  /* ocultar modales y elementos con .hidden */
+  .hidden {
+    display: none !important;
+  }
 }

@@ -223,4 +223,7 @@ body.sidebar-open .hamburger {
     width: 4rem;
     height: 4rem;
   }
+  .hidden {
+  display: none !important;
+  }
 }

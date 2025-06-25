@@ -48,7 +48,7 @@ body {
 .site-header {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 30px;   /* ajusta a la altura real de tu header.png */
+  height: 45px;   /* ajusta a la altura real de tu header.png */
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/header.png')
               center/cover no-repeat;
   display: flex;

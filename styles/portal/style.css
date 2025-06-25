@@ -33,7 +33,7 @@ body, html {
 
 /* ===== Fondo de bienvenida ===== */
 body {
-  background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
+  background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/nosotros.png')
               center/cover no-repeat;
 }
 

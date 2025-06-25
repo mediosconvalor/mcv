@@ -1,16 +1,31 @@
 :root {
-  --green:    #39FF14;
-  --white:    #fff;
-  --dark:     rgba(0,0,0,0.6);
-  --light-bg: rgba(255,255,255,0.9);
+  --green:        #39FF14;
+  --white:        #fff;
+  --dark:         rgba(0,0,0,0.6);
+  --light-bg:     rgba(255,255,255,0.9);
+  --font-body:    'Mulish', sans-serif;
+  --font-heading: 'Orbitron', sans-serif;
 }
-* { box-sizing:border-box; margin:0; padding:0; }
-body, html { height:100%; width:100%; overflow:hidden; position:relative; }
 
-/* fondo */
-body {
-  background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
-              center/cover no-repeat;
+/* ===== Tipografías ===== */
+body, p, a, li {
+  font-family: var(--font-body);
+}
+h1, h2, h3, .welcome__title {
+  font-family: var(--font-heading);
+}
+
+/* ===== Reset y configuración base ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 /* overlay */

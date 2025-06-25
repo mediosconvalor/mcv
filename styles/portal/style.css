@@ -48,7 +48,7 @@ body {
 .site-header {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 45px;   /* ajusta a la altura de header.png */
+  height: 45px;   /* ajusta a la altura de tu header.png */
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/header.png')
               center/cover no-repeat;
   display: flex;
@@ -67,7 +67,6 @@ body {
   cursor: pointer;
   z-index: 11;
 }
-/* Oculta la hamburguesa cuando el sidebar está abierto */
 body.sidebar-open .hamburger {
   display: none;
 }
@@ -194,13 +193,13 @@ body.sidebar-open .hamburger {
 
 /* ===== Responsive (móvil) ===== */
 @media (max-width: 599px) {
-  /* permitir scroll vertical */
+  /* permitir scroll vertical de la página */
   html, body {
     height: auto;
     overflow-y: auto;
   }
 
-  /* separar welcome del footer para el grid */
+  /* ajustar welcome para el flujo móvil */
   .welcome {
     position: relative !important;
     inset: auto !important;
@@ -208,11 +207,9 @@ body.sidebar-open .hamburger {
     padding: 2rem 1rem 1rem;
   }
 
-  /* apps-grid fluye en móvil */
+  /* grid de apps en móvil */
   .apps-grid {
     position: relative;
-    bottom: auto;
-    transform: none;
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
@@ -226,13 +223,14 @@ body.sidebar-open .hamburger {
     height: 4rem;
   }
 
-  /* ajustar la altura del sidebar para que no tape el footer */
+  /* hacer que el sidebar cubra todo el alto y tenga scroll interno */
   .sidebar {
-    bottom: 4rem;      /* deja 4rem libres para el footer */
-    overflow-y: auto;  /* si excede, scroll interno */
+    bottom: 0 !important;
+    top:    0;
+    overflow-y: auto;
   }
 
-  /* ocultar modales abiertos */
+  /* ocultar elementos con .hidden */
   .hidden {
     display: none !important;
   }

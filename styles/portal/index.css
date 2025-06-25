@@ -4,3 +4,46 @@ body {
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
               center/cover no-repeat;
 }
+
+/* Grid de iconos en Home */
+.apps-grid {
+  position: absolute;
+  bottom: 4rem;               /* justo encima del footer */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 5;
+}
+
+.app-btn {
+  width: 4rem;
+  height: 4rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.app-btn img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.app-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Botón “+” */
+.add-app {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--green);
+  background: rgba(255,255,255,0.9);
+  border: 2px dashed var(--green);
+}

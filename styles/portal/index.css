@@ -27,15 +27,19 @@ body {
 /* ===== Grid de apps en móvil ===== */
 @media (max-width: 599px) {
   .apps-grid {
-    position: relative;          /* fluye bajo el welcome */
-    bottom: auto;
-    transform: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;     /* centra cada fila incluyendo la última */
+    position: relative;           /* fluye en el documento */
+    display: grid;
+    grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;      /* separa del saludo y del footer */
+    margin: 2rem auto 4rem;       /* espacio arriba y abajo */
+    justify-content: center;      /* centra las dos columnas */
     z-index: 5;
+  }
+
+  /* Último botón (“+”) ocupa ambas columnas y se centra */
+  .apps-grid .app-btn.add-app {
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 }
 

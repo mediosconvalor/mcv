@@ -193,7 +193,7 @@ body.sidebar-open .hamburger {
 }
 
 /* ===== Responsive (móvil) ===== */
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   /* permitir scroll vertical */
   html, body {
     height: auto;
@@ -201,7 +201,10 @@ body.sidebar-open .hamburger {
   }
   /* separar welcome del footer para el grid */
   .welcome {
-    padding-bottom: 6rem;
+    position: relative !important;
+    inset: auto !important;
+    height: auto;
+    padding: 2rem 1rem 1rem; 
   }
   /* apps-grid fluye en móvil */
   .apps-grid {
@@ -211,7 +214,8 @@ body.sidebar-open .hamburger {
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
     justify-content: center;
     z-index: 5;
   }

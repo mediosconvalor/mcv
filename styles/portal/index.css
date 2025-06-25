@@ -1,49 +1,60 @@
-/* ==============================
-   index.css — Estilos solo para Home
-   ============================== */
+/* index.css — Estilos exclusivos para la página de Inicio */
 
-/* ===== Fondo exclusivo de Index ===== */
-body {
-  background-color: transparent !important;
+/* =========================================
+   Fondo fijo que cubre todo el scroll (html)
+   ========================================= */
+html {
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
-              center/cover no-repeat !important;
+              center/cover no-repeat fixed;
 }
 
-/* ===== Grid de apps en desktop ===== */
+/* ==============================
+   Anular fondo gris del body
+   ============================== */
+body {
+  background: none !important;
+}
+
+/* ==============================
+   Grid de apps en desktop
+   ============================== */
 @media (min-width: 600px) {
   .apps-grid {
     position: absolute;
-    bottom: 4rem;                /* justo encima del footer */
+    bottom: 4rem;                  /* justo encima del footer */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;     /* centra cada fila */
+    justify-content: center;       /* centra cada fila */
     gap: 1.5rem;
     z-index: 5;
   }
 }
 
-/* ===== Grid de apps en móvil ===== */
+/* ==============================
+   Grid de apps en móvil
+   ============================== */
 @media (max-width: 599px) {
   .apps-grid {
-    position: relative;           /* fluye en el documento */
+    position: relative;            /* entra en el flujo */
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;       /* espacio arriba y abajo */
-    justify-content: center;      /* centra las dos columnas */
+    margin: 2rem auto 4rem;        /* separa del saludo y del footer */
+    justify-content: center;       /* centra las columnas */
     z-index: 5;
   }
-
-  /* Último botón (“+”) ocupa ambas columnas y se centra */
+  /* El “+” abarca ambas columnas y se centra */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;
   }
 }
 
-/* ===== Botones de app (común) ===== */
+/* ==============================
+   Botones de app (común)
+   ============================== */
 .app-btn {
   width: 4rem;
   height: 4rem;
@@ -63,13 +74,21 @@ body {
   transform: scale(1.1);
 }
 
-/* ===== Botón “+” de agregar ===== */
+/* ==============================
+   Botón “+” de agregar
+   ============================== */
 .app-btn.add-app {
   font-size: 2rem;
   font-weight: bold;
   color: var(--green);
   border: 2px dashed var(--green);
   background: rgba(255,255,255,0.9);
-  /* centrarlo en su fila */
-  margin: 0 auto;
+  margin: 0 auto;               /* centra en desktop también */
+}
+
+/* ==============================
+   Ajuste fino: bajar logo 5px
+   ============================== */
+.welcome__logo {
+  margin-top: 5px;
 }

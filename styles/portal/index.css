@@ -1,24 +1,51 @@
-/* ===== Fondo exclusivo de Index ===== */
+/* index.css */
+
+/* Fondo de Index */
 body {
+  /* Anula el gris por defecto */
   background-color: transparent !important;
+  /* Imagen centrada y cubriendo todo el viewport */
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
               center/cover no-repeat !important;
 }
 
-/* ===== Grid de apps en Home ===== */
-.apps-grid {
-  position: absolute;
-  bottom: 4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  z-index: 5;
+/* ==============================
+   Grid de apps en pantallas grandes
+   ============================== */
+@media (min-width: 600px) {
+  .apps-grid {
+    position: absolute;
+    bottom: 4rem;                 /* justo encima del footer */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    z-index: 5;
+  }
 }
 
-/* ===== Botones de app ===== */
+/* ==============================
+   Grid de apps en móvil
+   ============================== */
+@media (max-width: 599px) {
+  .apps-grid {
+    position: relative;           /* fluye en el documento */
+    bottom: auto;
+    transform: none;
+    display: grid;
+    grid-template-columns: repeat(2, 4rem);
+    gap: 1rem;
+    margin: 2rem auto 4rem;       /* empuja hacia abajo y da espacio */
+    justify-content: center;
+    z-index: 5;
+  }
+}
+
+/* ==============================
+   Botones de app (común)
+   ============================== */
 .app-btn {
   width: 4rem;
   height: 4rem;
@@ -30,18 +57,17 @@ body {
   text-decoration: none;
   transition: transform 0.2s;
 }
-
 .app-btn img {
   max-width: 80%;
   max-height: 80%;
 }
-
-/* Efecto hover */
 .app-btn:hover {
   transform: scale(1.1);
 }
 
-/* ===== Botón “+” de agregar ===== */
+/* ==============================
+   Botón “+” de agregar
+   ============================== */
 .app-btn.add-app {
   font-size: 2rem;
   font-weight: bold;

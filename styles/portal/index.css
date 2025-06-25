@@ -13,28 +13,29 @@ body {
 @media (min-width: 600px) {
   .apps-grid {
     position: absolute;
-    bottom: 4rem;
+    bottom: 4rem;                  /* justo encima del footer */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center;       /* centra cada fila */
     gap: 1.5rem;
-    z-index: 5;
+    z-index: 5;                    /* por encima del overlay */
   }
 }
 
 /* Grid de apps en móvil */
 @media (max-width: 599px) {
   .apps-grid {
-    position: relative;
+    position: relative;            /* entra en el flujo */
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;
-    justify-content: center;
+    margin: 2rem auto 4rem;        /* separa del saludo y del footer */
+    justify-content: center;       /* centra las columnas */
     z-index: 5;
   }
+  /* El “+” abarca ambas columnas y se centra */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;
@@ -51,6 +52,7 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  position: relative;
   transition: transform 0.2s;
 }
 .app-btn img {
@@ -61,14 +63,14 @@ body {
   transform: scale(1.1);
 }
 
-/* Botón "+" de agregar */
+/* Botón “+” de agregar */
 .app-btn.add-app {
   font-size: 2rem;
   font-weight: bold;
   color: var(--green);
   border: 2px dashed var(--green);
   background: rgba(255,255,255,0.9);
-  margin: 0 auto;
+  margin: 0 auto;               /* centra en desktop también */
 }
 
 /* Ajuste fino: bajar logo 5px */

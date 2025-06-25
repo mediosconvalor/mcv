@@ -48,7 +48,7 @@ body {
 .site-header {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 45px;   /* ajusta a la altura de header.png */
+  height: 45px;   /* ajusta a la altura de tu header.png */
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/header.png')
               center/cover no-repeat;
   display: flex;
@@ -82,7 +82,9 @@ body.sidebar-open .hamburger {
 /* ===== Sidebar ===== */
 .sidebar {
   position: absolute;
-  top: 0; bottom: 0; left: -260px;
+  top: 0;
+  bottom: 0;
+  left: -260px;
   width: 260px;
   background: var(--light-bg);
   backdrop-filter: blur(8px);
@@ -191,30 +193,66 @@ body.sidebar-open .hamburger {
   opacity: 1;
 }
 
+/* ===== Grid de apps general ===== */
+.apps-wrapper {
+  position: relative;
+  overflow: visible;
+}
+.apps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 250px);
+}
+
+/* ——— Desktop: grid de apps siempre visible y encima de todo ——— */
+@media (min-width: 600px) {
+  .apps-grid {
+    position: fixed;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    z-index: 1002;
+  }
+}
+
 /* ===== Responsive (móvil) ===== */
 @media (max-width: 599px) {
+  /* permitir scroll vertical de la página */
   html, body {
     height: auto;
     overflow-y: auto;
   }
+
+  /* ajustar welcome para el flujo móvil */
   .welcome {
     position: relative !important;
     inset: auto !important;
     height: auto;
     padding: 2rem 1rem 1rem;
   }
+
+  /* grid de apps en móvil */
   .apps-grid {
     position: relative;
-    bottom: auto;
-    transform: none;
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 4rem;
+    margin: 1rem auto 4rem;
     justify-content: center;
     z-index: 5;
     overflow-y: auto;
+  }
+  .apps-grid .app-btn.add-app {
+    grid-column: 1 / -1;
+    justify-self: center;
   }
   .app-btn {
     width: 4rem;
@@ -222,6 +260,13 @@ body.sidebar-open .hamburger {
   }
   .hidden {
     display: none !important;
+  }
+
+  /* hacer que el sidebar cubra todo el alto y tenga scroll interno */
+  .sidebar {
+    top: 0;
+    bottom: 0 !important;
+    overflow-y: auto;
   }
 }
 
@@ -280,18 +325,4 @@ body.sidebar-open .hamburger {
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-}
-
-/* ===== Grid de apps general ===== */
-.apps-wrapper {
-  position: relative;
-}
-.apps-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding-bottom: 1rem;
-  overflow-y: auto;
-  max-height: calc(100vh - 250px);
 }

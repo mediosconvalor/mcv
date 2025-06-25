@@ -1,48 +1,55 @@
-/* index.css — Estilos exclusivos para la página de Inicio */
+/* Index.css — Estilos exclusivos para la página de Inicio */
 
+/* fondo fijo que cubre todo el scroll */
 html {
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
               center/cover no-repeat fixed;
 }
 
+/* anular fondo gris del body */
 body {
   background: none !important;
 }
 
-/* Grid de apps en escritorio */
+/* para que las apps no queden recortadas */
+.apps-wrapper {
+  overflow: visible !important;
+  position: relative;
+}
+
+/* =========== Desktop: grid fijo arriba del footer =========== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: absolute;
-    bottom: 4rem;                  /* justo encima del footer */
+    position: fixed;        /* <-- aquí */
+    bottom: 4rem;           /* justo encima del footer */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;       /* centra cada fila */
+    justify-content: center;
     gap: 1.5rem;
-    z-index: 5;                    /* por encima del overlay */
+    z-index: 6;             /* por encima de .welcome (5) */
   }
 }
 
-/* Grid de apps en móvil */
+/* =========== Móvil: grid fluye en columnas =========== */
 @media (max-width: 599px) {
   .apps-grid {
-    position: relative;            /* entra en el flujo */
+    position: relative;
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;        /* separa del saludo y del footer */
-    justify-content: center;       /* centra las columnas */
+    margin: 2rem auto 4rem;
+    justify-content: center;
     z-index: 5;
   }
-  /* El “+” abarca ambas columnas y se centra */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;
   }
 }
 
-/* Botones de app (común) */
+/* ===== Botones comunes ===== */
 .app-btn {
   width: 4rem;
   height: 4rem;
@@ -52,7 +59,6 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  position: relative;
   transition: transform 0.2s;
 }
 .app-btn img {
@@ -63,17 +69,17 @@ body {
   transform: scale(1.1);
 }
 
-/* Botón “+” de agregar */
+/* ===== Botón “+” ===== */
 .app-btn.add-app {
   font-size: 2rem;
   font-weight: bold;
   color: var(--green);
   border: 2px dashed var(--green);
   background: rgba(255,255,255,0.9);
-  margin: 0 auto;               /* centra en desktop también */
+  margin: 0 auto;
 }
 
-/* Ajuste fino: bajar logo 5px */
+/* ===== Ajuste fino logo ===== */
 .welcome__logo {
   margin-top: 20px;
 }

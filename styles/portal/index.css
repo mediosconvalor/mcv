@@ -25,12 +25,12 @@ body {
 /* ===== Desktop: grid relativo bajo el saludo ===== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: relative;               /* ya no es fixed/absolute */
+    position: fixed;               /* ya no es fixed/absolute */
     display: grid;
     grid-template-columns: repeat(4, 4rem);
     gap: 1.5rem;
     /* ESTE margin-top empuja el grid debajo del "Rol:" */
-    margin: 2.5rem auto 4rem;
+    margin: 42rem 25rem;
     justify-content: center;
     z-index: 6;
   }

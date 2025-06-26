@@ -17,29 +17,29 @@ body {
   overflow: visible !important;
 }
 
-/* ===== Desktop: flex-wrap en varias filas ===== */
+/* ===== Desktop: grid de 4 columnas encima del footer ===== */
 @media (min-width: 600px) {
   .apps-grid {
     position: absolute;
-    bottom: 4rem;           /* justo encima del footer */
+    bottom: 4rem;           /* justo sobre el footer */
     left: 50%;
     transform: translateX(-50%);
     
-    display: flex;
-    flex-wrap: wrap;        /* permite varias filas */
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 4rem);
+    grid-auto-rows: auto;
     gap: 1.5rem;
+    justify-content: center;
     
-    /* no fijamos width: se adapta al contenido */
-    z-index: 6;             /* por encima de .welcome */
+    /* ancho automático, no fijo, para que ajuste al contenido */
+    width: auto;
+    z-index: 6;
   }
 
-  /* el “+” va siempre al final, en su propia fila */
+  /* el “+” ocupa toda la fila y se centra */
   .apps-grid .app-btn.add-app {
-    flex: 0 0 100%;         /* ocupa línea completa */
-    max-width: 4rem;
+    grid-column: 1 / -1;
     justify-self: center;
-    margin: 0 auto;
   }
 }
 

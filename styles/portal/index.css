@@ -5,39 +5,33 @@ html {
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
               center/cover no-repeat fixed;
 }
-
-/* anular fondo gris del body */
 body {
   background: none !important;
 }
 
 /* para que las apps no queden recortadas */
 .apps-wrapper {
-  overflow: visible !important;
   position: relative;
+  padding: 2rem 0 4rem;    /* espacio arriba y abajo */
+  z-index: 5;
 }
 
-/* =========== Desktop: grid de 4 columnas =========== */
-@media (min-width: 600px) {
-  .apps-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 4rem);
-    gap: 1.5rem;
-    justify-content: center;
-    margin-bottom: 4rem; /* deja espacio antes del footer */
-    z-index: 6;
-  }
+/* grid general: en desktop 4 cols, en móvil 2 cols */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 32rem;        /* 4 iconos × 4rem + gaps */
 }
 
-/* =========== Móvil: grid fluye en 2 columnas =========== */
+/* en móvil estrecho, fuerza 2 columnas */
 @media (max-width: 599px) {
   .apps-grid {
-    display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;
-    justify-content: center;
-    z-index: 5;
+    max-width: 10rem;      /* 2 cols × 4rem + gap */
   }
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
@@ -45,7 +39,7 @@ body {
   }
 }
 
-/* ===== Botones comunes ===== */
+/* botón de app común */
 .app-btn {
   position: relative;
   width: 4rem;
@@ -74,7 +68,7 @@ body {
   transform: scale(1.1);
 }
 
-/* ===== Botón “+” ===== */
+/* botón “+” de agregar */
 .app-btn.add-app {
   font-size: 2rem;
   font-weight: bold;
@@ -84,7 +78,7 @@ body {
   margin: 0 auto;
 }
 
-/* ===== Botón “✕” (quitar) ===== */
+/* botón “✕” de quitar */
 .remove-btn {
   position: absolute;
   top: 0.2rem;
@@ -109,7 +103,7 @@ body {
   opacity: 1;
 }
 
-/* ===== Ajuste fino logo ===== */
+/* ajuste fino del logo */
 .welcome__logo {
   margin-top: 20px;
 }

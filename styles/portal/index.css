@@ -1,55 +1,69 @@
-/* Index.css — Estilos exclusivos para la página de Inicio */
+/* index.css — Estilos exclusivos para la página de Inicio */
 
-/* fondo fijo que cubre todo el scroll */
 html {
   background: url('https://raw.githubusercontent.com/mediosconvalor/mcv/refs/heads/main/img/background/welcome_portal.png')
               center/cover no-repeat fixed;
 }
 
-/* anular fondo gris del body */
+/* ==============================
+   Anular fondo gris del body
+   ============================= */
 body {
   background: none !important;
 }
 
-/* para que las apps no queden recortadas */
-.apps-wrapper {
-  overflow: visible !important;
-  position: relative;
-}
-
-/* =========== Desktop: grid fijo arriba del footer =========== */
+/* ==============================
+   Grid de apps en desktop
+   ============================== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: fixed;        /* <-- aquí */
-    bottom: 4rem;           /* justo encima del footer */
+    position: absolute;
+    bottom: 4rem;                  /* justo encima del footer */
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    z-index: 6;             /* por encima de .welcome (5) */
-  }
-}
-
-/* =========== Móvil: grid fluye en columnas =========== */
-@media (max-width: 599px) {
-  .apps-grid {
-    position: relative;
+    
+    /* pasamos de flex+scroll a grid de 4 columnas */
     display: grid;
-    grid-template-columns: repeat(2, 4rem);
-    gap: 1rem;
-    margin: 2rem auto 4rem;
-    justify-content: center;
+    grid-template-columns: repeat(4, 4rem);
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+
+    /* desactivamos cualquier scroll forzado */
+    overflow: visible !important;
+    max-height: none !important;
     z-index: 5;
   }
+
+  /* si queda el botón “+” solo, que ocupe toda la fila */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;
   }
 }
 
-/* ===== Botones comunes ===== */
+/* ==============================
+   Grid de apps en móvil
+   ============================== */
+@media (max-width: 599px) {
+  .apps-grid {
+    position: relative;            /* entra en el flujo */
+    display: grid;
+    grid-template-columns: repeat(2, 4rem);
+    gap: 1rem;
+    margin: 2rem auto 4rem;        /* separa del saludo y del footer */
+    justify-content: center;       /* centra las columnas */
+    z-index: 5;
+  }
+  /* El “+” abarca ambas columnas y se centra */
+  .apps-grid .app-btn.add-app {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+/* ==============================
+   Botones de app (común)
+   ============================== */
 .app-btn {
   width: 4rem;
   height: 4rem;
@@ -69,17 +83,21 @@ body {
   transform: scale(1.1);
 }
 
-/* ===== Botón “+” ===== */
+/* ==============================
+   Botón “+” de agregar
+   ============================== */
 .app-btn.add-app {
   font-size: 2rem;
   font-weight: bold;
   color: var(--green);
   border: 2px dashed var(--green);
   background: rgba(255,255,255,0.9);
-  margin: 0 auto;
+  margin: 0 auto;               /* centra en desktop también */
 }
 
-/* ===== Ajuste fino logo ===== */
+/* ==============================
+   Ajuste fino: bajar logo 5px
+   ============================== */
 .welcome__logo {
   margin-top: 20px;
 }

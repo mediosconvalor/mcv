@@ -22,17 +22,19 @@ body {
   overflow: visible !important;
 }
 
-/* ===== Desktop: 4 columnas bajo la bienvenida ===== */
+/* ===== Desktop: grid relativo bajo el saludo ===== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: relative;
+    position: relative;               /* ya no es fixed/absolute */
     display: grid;
     grid-template-columns: repeat(4, 4rem);
     gap: 1.5rem;
-    margin: 2rem auto 4rem;
+    /* ESTE margin-top empuja el grid debajo del "Rol:" */
+    margin: 2.5rem auto 4rem;
     justify-content: center;
     z-index: 6;
   }
+  /* el + ocupa toda la fila y queda centrado */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;
@@ -90,10 +92,6 @@ body {
   font-weight: bold;
   color: var(--green);
   border: 2px dashed var(--green);
+  background: rgba(255,255,255,0.9);
   margin: 0 auto;
-}
-
-/* ===== Mantener fallback ===== */
-@media print {
-  body { background: #fff; }
 }

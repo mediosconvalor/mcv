@@ -1,4 +1,4 @@
-/* index.css — Estilos exclusivos para la página de Inicio */
+/* Index.css — Estilos exclusivos para la página de Inicio */
 
 /* fondo fijo que cubre todo el scroll */
 html {
@@ -13,29 +13,28 @@ body {
 
 /* para que las apps no queden recortadas */
 .apps-wrapper {
-  position: relative;
   overflow: visible !important;
+  position: relative;
 }
 
-/* ===== Desktop: grid fijo encima del footer ===== */
+/* ===== Desktop: grid de 4 columnas bajo el rol ===== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: relative;
+    position: relative;          /* entra en el flujo tras <main> */
     display: grid;
     grid-template-columns: repeat(4, 4rem);
     gap: 1.5rem;
-    margin: 0 auto 4rem;       /* separa del footer */
+    margin: 2rem auto 4rem;      /* 2rem de separación tras el rol, 4rem antes del footer */
     justify-content: center;
     z-index: 6;
   }
-  /* si hay menos de 8 apps, el “+” ocupa toda la última fila y se centra */
   .apps-grid .app-btn.add-app {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1;          /* ocupa toda la fila */
     justify-self: center;
   }
 }
 
-/* ===== Móvil: grid de 2 columnas ===== */
+/* ===== Móvil: 2 columnas + “＋” centrado ===== */
 @media (max-width: 599px) {
   .apps-grid {
     position: relative;
@@ -52,42 +51,42 @@ body {
   }
 }
 
-/* ===== Botones de app (común) ===== */
+/* ===== Botones comunes ===== */
 .app-btn {
   width: 4rem;
-  /* altura auto para caber icono + texto */
-  padding-bottom: 0.25rem;
+  height: 4rem;
   background: rgba(255,255,255,0.9);
   border-radius: 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   transition: transform 0.2s;
+  position: relative;
 }
 .app-btn img {
   width: 3rem;
   height: 3rem;
-  margin-top: 0.5rem;
 }
 .app-btn .app-label {
-  margin-top: 0.25rem;
   font-size: 0.75rem;
-  color: #333;
-  text-align: center;
+  margin-top: 0.25rem;
   white-space: nowrap;
+  color: #333;
 }
 .app-btn:hover {
   transform: scale(1.1);
 }
 
-/* ===== Botón “+” de agregar ===== */
+/* ===== Botón “+” ===== */
 .app-btn.add-app {
   font-size: 2rem;
   font-weight: bold;
   color: var(--green);
   border: 2px dashed var(--green);
   background: rgba(255,255,255,0.9);
+  margin: 0 auto;
 }
 
 /* ===== Ajuste fino logo ===== */

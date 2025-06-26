@@ -1,4 +1,4 @@
-/* Index.css — Estilos exclusivos para la página de Inicio */
+/* index.css — Estilos exclusivos para la página de Inicio */
 
 /* fondo fijo que cubre todo el scroll */
 html {
@@ -13,47 +13,47 @@ body {
 
 /* para que las apps no queden recortadas */
 .apps-wrapper {
-  overflow: visible !important;
   position: relative;
+  overflow: visible !important;
 }
 
-/* ===== Desktop: grid fijo arriba del footer ===== */
+/* ===== Desktop: flex-wrap en varias filas ===== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: absolute;      /* no fixed para que no se recorte */
-    bottom: 4rem;            /* justo encima del footer */
+    position: absolute;
+    bottom: 4rem;           /* justo encima del footer */
     left: 50%;
     transform: translateX(-50%);
     
-    /* usamos grid para filas de 4 */
-    display: grid;
-    grid-template-columns: repeat(4, 4rem);
-    grid-auto-rows: auto;
+    display: flex;
+    flex-wrap: wrap;        /* permite varias filas */
+    justify-content: center;
     gap: 1.5rem;
     
-    z-index: 6;              /* por encima de .welcome (5) */
+    /* no fijamos width: se adapta al contenido */
+    z-index: 6;             /* por encima de .welcome */
   }
-  
-  /* el “+” ocupa toda la última fila y queda centrado */
+
+  /* el “+” va siempre al final, en su propia fila */
   .apps-grid .app-btn.add-app {
-    grid-column: 1 / -1;
+    flex: 0 0 100%;         /* ocupa línea completa */
+    max-width: 4rem;
     justify-self: center;
+    margin: 0 auto;
   }
 }
 
-/* ===== Móvil: grid fluye en 2 columnas ===== */
+/* ===== Móvil: grid de 2 columnas ===== */
 @media (max-width: 599px) {
   .apps-grid {
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
-    margin: 2rem auto 4rem;  /* separa saludo y footer */
+    margin: 2rem auto 4rem;
     justify-content: center;
     z-index: 5;
   }
-  
-  /* el “+” abarca ambas columnas en móvil */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;
@@ -72,12 +72,10 @@ body {
   text-decoration: none;
   transition: transform 0.2s;
 }
-
 .app-btn img {
   width: 3rem;
   height: 3rem;
 }
-
 .app-btn:hover {
   transform: scale(1.1);
 }
@@ -89,10 +87,9 @@ body {
   color: var(--green);
   border: 2px dashed var(--green);
   background: rgba(255,255,255,0.9);
-  margin: 0 auto;
 }
 
-/* ===== Ajuste fino: bajar logo 5px ===== */
+/* ===== Ajuste fino logo ===== */
 .welcome__logo {
   margin-top: 20px;
 }

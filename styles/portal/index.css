@@ -1,4 +1,4 @@
-/* — index.css: estilos exclusivos de Inicio — */
+/* index.css — Estilos exclusivos para la página de Inicio */
 
 /* fondo fijo que cubre todo el scroll */
 html {
@@ -11,40 +11,27 @@ body {
   background: none !important;
 }
 
-/* ajuste logo */
-.welcome__logo {
-  margin-top: 20px;
-}
-
-/* wrapper general */
+/* para que las apps no queden recortadas */
 .apps-wrapper {
-  position: relative;
   overflow: visible !important;
+  position: relative;
 }
 
-/* ===== Desktop: grid relativo bajo el saludo ===== */
+/* =========== Desktop: grid de 4 columnas =========== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: fixed;               /* ya no es fixed/absolute */
     display: grid;
     grid-template-columns: repeat(4, 4rem);
     gap: 1.5rem;
-    /* ESTE margin-top empuja el grid debajo del "Rol:" */
-    margin: 42rem 25rem;
     justify-content: center;
+    margin-bottom: 4rem; /* deja espacio antes del footer */
     z-index: 6;
-  }
-  /* el + ocupa toda la fila y queda centrado */
-  .apps-grid .app-btn.add-app {
-    grid-column: 1 / -1;
-    justify-self: center;
   }
 }
 
-/* ===== Móvil: 2 columnas fluido ===== */
+/* =========== Móvil: grid fluye en 2 columnas =========== */
 @media (max-width: 599px) {
   .apps-grid {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(2, 4rem);
     gap: 1rem;
@@ -60,6 +47,7 @@ body {
 
 /* ===== Botones comunes ===== */
 .app-btn {
+  position: relative;
   width: 4rem;
   height: 4rem;
   background: rgba(255,255,255,0.9);
@@ -68,7 +56,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
   text-decoration: none;
   transition: transform 0.2s;
 }
@@ -77,10 +64,11 @@ body {
   height: 3rem;
 }
 .app-btn .app-label {
-  font-size: 0.75rem;
   margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #222;
   text-align: center;
-  color: #333;
+  white-space: nowrap;
 }
 .app-btn:hover {
   transform: scale(1.1);
@@ -94,4 +82,34 @@ body {
   border: 2px dashed var(--green);
   background: rgba(255,255,255,0.9);
   margin: 0 auto;
+}
+
+/* ===== Botón “✕” (quitar) ===== */
+.remove-btn {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: background 0.2s, opacity 0.2s;
+}
+.remove-btn:hover {
+  background: rgba(255,0,0,0.8);
+  opacity: 1;
+}
+
+/* ===== Ajuste fino logo ===== */
+.welcome__logo {
+  margin-top: 20px;
 }

@@ -20,24 +20,15 @@ body {
 /* ===== Desktop: grid fijo encima del footer ===== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: absolute;
-    bottom: 4rem;           /* justo encima del footer */
-    left: 50%;
-    transform: translateX(-50%);
-    
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 4rem);
-    grid-auto-rows: auto;
     gap: 1.5rem;
+    margin: 0 auto 4rem;       /* separa del footer */
     justify-content: center;
-    
-    /* ancho automático, no fijo, para que ajuste al contenido */
-    width: auto;
-    padding: 0 1rem;
     z-index: 6;
   }
-  
-  /* el “+” ocupa toda la fila y se centra */
+  /* si hay menos de 8 apps, el “+” ocupa toda la última fila y se centra */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;

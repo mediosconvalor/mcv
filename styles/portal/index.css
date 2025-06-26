@@ -21,6 +21,19 @@ body {
 }
 
 /* —————————————————————————————
+   OVERRIDE DESKTOP: hacer que el welcome fluya
+   y deje espacio para las apps
+   ————————————————————————————— */
+@media (min-width: 600px) {
+  .welcome {
+    position: relative !important;
+    inset: auto !important;
+    height: auto !important;
+    padding: 2rem 1rem 1rem;
+  }
+}
+
+/* —————————————————————————————
    GRID DE APPS EN DESKTOP (4 columnas)
    ————————————————————————————— */
 @media (min-width: 600px) {
@@ -29,7 +42,7 @@ body {
     grid-template-columns: repeat(4, 4rem);
     gap: 1.5rem;
     justify-content: center;
-    margin-top: 1rem;       /* baja justo debajo del rol */
+    margin-top: 1rem;       /* justo debajo del rol */
   }
 }
 

@@ -17,39 +17,50 @@ body {
   position: relative;
 }
 
-/* =========== Desktop: grid fijo arriba del footer =========== */
+/* ===== Desktop: grid fijo arriba del footer ===== */
 @media (min-width: 600px) {
   .apps-grid {
-    position: fixed;        /* <-- aquí */
-    bottom: 4rem;           /* justo encima del footer */
+    position: absolute;      /* no fixed para que no se recorte */
+    bottom: 4rem;            /* justo encima del footer */
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    z-index: 6;             /* por encima de .welcome (5) */
-  }
-}
-
-/* =========== Móvil: grid fluye en columnas =========== */
-@media (max-width: 599px) {
-  .apps-grid {
-    position: relative;
+    
+    /* usamos grid para filas de 4 */
     display: grid;
-    grid-template-columns: repeat(2, 4rem);
-    gap: 1rem;
-    margin: 2rem auto 4rem;
-    justify-content: center;
-    z-index: 5;
+    grid-template-columns: repeat(4, 4rem);
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+    
+    z-index: 6;              /* por encima de .welcome (5) */
   }
+  
+  /* el “+” ocupa toda la última fila y queda centrado */
   .apps-grid .app-btn.add-app {
     grid-column: 1 / -1;
     justify-self: center;
   }
 }
 
-/* ===== Botones comunes ===== */
+/* ===== Móvil: grid fluye en 2 columnas ===== */
+@media (max-width: 599px) {
+  .apps-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 4rem);
+    gap: 1rem;
+    margin: 2rem auto 4rem;  /* separa saludo y footer */
+    justify-content: center;
+    z-index: 5;
+  }
+  
+  /* el “+” abarca ambas columnas en móvil */
+  .apps-grid .app-btn.add-app {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+/* ===== Botones de app (común) ===== */
 .app-btn {
   width: 4rem;
   height: 4rem;
@@ -61,15 +72,17 @@ body {
   text-decoration: none;
   transition: transform 0.2s;
 }
+
 .app-btn img {
   width: 3rem;
   height: 3rem;
 }
+
 .app-btn:hover {
   transform: scale(1.1);
 }
 
-/* ===== Botón “+” ===== */
+/* ===== Botón “+” de agregar ===== */
 .app-btn.add-app {
   font-size: 2rem;
   font-weight: bold;
@@ -79,7 +92,7 @@ body {
   margin: 0 auto;
 }
 
-/* ===== Ajuste fino logo ===== */
+/* ===== Ajuste fino: bajar logo 5px ===== */
 .welcome__logo {
-  margin-top: 5px;
+  margin-top: 20px;
 }

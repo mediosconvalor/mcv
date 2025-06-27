@@ -27,7 +27,6 @@ h1, h2, h3, .welcome__title {
 html, body {
   height: auto;
   width: 100%;
-  margin: 0;
   overflow-y: auto;
   position: relative;
 }
@@ -35,9 +34,6 @@ html, body {
 /* ===== Fondo por defecto ===== */
 body {
   background-color: #e8ecec;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 /* ===== Capa semitransparente ===== */
@@ -169,8 +165,8 @@ body.sidebar-open .hamburger {
 
 /* ===== Footer ===== */
 .footer {
-  position: relative;
-  margin-top: auto;
+  /* elimina position: fixed y bottom */
+  position: relative;  /* o simplemente quítalo */
   bottom: auto;
   left: 0;
   right: 0;
@@ -178,9 +174,10 @@ body.sidebar-open .hamburger {
   color: #4A4A63;
   font-size: 0.9rem;
   text-align: center;
-  padding: 0.75rem 0;
+  padding: 0.75rem 0;  /* un poco de espacio arriba y abajo */
   box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
   z-index: 1000;
+  margin-top: 2rem;   /* separa el footer del contenido */
 }
 .footer__inner {
   max-width: 900px;
@@ -415,10 +412,34 @@ body.sidebar-open .hamburger {
   border-radius: 0 0 8px 8px;
 }
 
+/* select */
+/* ===== Select “Mostrar” con bordes circulares ===== */
+.per-page select,
+#perPage {
+  border: 2px solid var(--green);
+  border-radius: 999px;      /* bordes completamente redondeados */
+  background-color: #f0f0f0; /* mismo gris claro del buscador */
+  padding: 0.25rem 1.25rem;   /* espacio interior */
+  font-size: 0.95rem;
+  outline: none;
+  appearance: none;          /* quita flecha nativa en algunos navegadores */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><path fill="%23000" d="M0,0l5,5l5,-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.75rem) center;
+  background-size: 10px 5px;
+  cursor: pointer;
+}
+
+/* Ajuste para mantener el ancho acorde al contenido */
+.per-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 /* ===== Espacio extra antes del footer en móvil ===== */
 @media (max-width: 768px) {
   main.container {
     padding-bottom: 4rem;
-    flex: 1;
   }
 }

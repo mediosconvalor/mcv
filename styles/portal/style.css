@@ -299,3 +299,57 @@ body.sidebar-open .hamburger {
   overflow-y: auto;
   max-height: calc(100vh - 250px);
 }
+
+/* --- tablas --- */
+
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  /* elimina sombras si quieres un look más plano */
+  box-shadow: none;
+}
+
+/* Encabezado verde con texto blanco y bordes verdes */
+.table thead th {
+  background-color: #00C13F;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.75rem 1rem;
+  border: 1px solid #00C13F;
+}
+
+/* Celdas del cuerpo con borde gris suave */
+.table tbody td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+/* Hover de filas */
+.table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Enlaces de acción en color oscuro */
+.action-link {
+  color: #004080;
+  text-decoration: none;
+}
+.action-link:hover {
+  text-decoration: underline;
+}
+
+/* QR con borde ligero */
+.qr-code {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

@@ -437,6 +437,37 @@ body.sidebar-open .hamburger {
   gap: 0.25rem;
 }
 
+/* Sidebar en flex-columna */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Para que tome toda la altura */
+}
+
+/* El UL ocupa todo el espacio disponible */
+.sidebar ul {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+/* El logout-item se empuja al final */
+.sidebar ul li.logout-item {
+  margin-top: auto;
+}
+
+/* Dale un poco de espacio arriba */
+.sidebar ul li.logout-item a {
+  padding-top: 1rem;
+  color: #e63946;
+  font-weight: 600;
+}
+.sidebar ul li.logout-item a:hover {
+  color: #d62828;      /* un tono más oscuro al pasar el ratón */
+}
+
 /* ===== Espacio extra antes del footer en móvil ===== */
 @media (max-width: 768px) {
   main.container {

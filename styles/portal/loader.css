@@ -1,45 +1,51 @@
 /* loader.css */
-.loader-container {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: var(--fondo-loader, #2c2f3a);
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    z-index: 9999;
-    transition: background-color 0.3s ease;
+
+/* Loader full-screen */
+#page-loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: #f5f5f5;               /* mismo fondo que tu web */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
-.loader-svg {
-    width: 120px; height: 120px;
-    animation: scaleTree 1.8s ease-out forwards;
-    transform-origin: center center;
+
+/* Logo MCV dentro del loader */
+.loader-logo {
+  width: 120px;                      /* ajústalo según tu logo */
+  margin-bottom: 1rem;
+  animation: fadeIn 0.6s ease-in-out;
 }
-@keyframes scaleTree {
-    0% { transform: scale(0.2); opacity: 0; }
-    100% { transform: scale(1);   opacity: 1; }
+
+/* Spinner circular */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #333;        /* color de texto principal de MCV */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
-.loader-svg.hide {
-    animation: shrinkTree 0.5s ease-in-out forwards;
+
+/* Animaciones */
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
-@keyframes shrinkTree {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(0.3); opacity: 0; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.loader-text {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    border-right: 2px solid white;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    animation:
-        typing 3.5s steps(40, end) 0.5s forwards,
-        blink 0.75s step-end infinite;
+
+/* Ocultar contenido y preparar fade-out del loader */
+.hidden {
+  display: none;
 }
-@keyframes typing {
-    from { width: 0 } to { width: 270px }
-}
-@keyframes blink {
-    50% { border-color: transparent }
+
+#page-loader.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }

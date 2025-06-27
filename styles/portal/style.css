@@ -27,6 +27,7 @@ h1, h2, h3, .welcome__title {
 html, body {
   height: auto;
   width: 100%;
+  margin: 0;
   overflow-y: auto;
   position: relative;
 }
@@ -34,6 +35,9 @@ html, body {
 /* ===== Fondo por defecto ===== */
 body {
   background-color: #e8ecec;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* ===== Capa semitransparente ===== */
@@ -165,8 +169,8 @@ body.sidebar-open .hamburger {
 
 /* ===== Footer ===== */
 .footer {
-  /* elimina position: fixed y bottom */
-  position: relative;  /* o simplemente quítalo */
+  position: relative;
+  margin-top: 1rem;
   bottom: auto;
   left: 0;
   right: 0;
@@ -369,13 +373,12 @@ body.sidebar-open .hamburger {
 
 /* ===== Buscador y botón ===== */
 .page-actions {
-  display: block !important;
+  display: block;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   padding: 1rem;
-  text-align: center;
 }
 
 .page-actions a.btn {
@@ -417,5 +420,6 @@ body.sidebar-open .hamburger {
 @media (max-width: 768px) {
   main.container {
     padding-bottom: 4rem;
+    flex: 1;
   }
 }

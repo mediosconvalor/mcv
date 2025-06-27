@@ -468,6 +468,89 @@ body.sidebar-open .hamburger {
 .sidebar ul li.logout-item a:hover {
   color: #d62828;      /* un tono más oscuro al pasar el ratón */
 }
+/* ===== Campos al 100% de la columna ===== */
+.form-control {
+  width: 100%;
+  max-width: none;
+}
+
+/* ===== Ajustar el contenedor del formulario ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;      /* una sola columna */
+  grid-gap: 1.5rem;
+  max-width: calc(100% - 4rem);    /* deja 2rem de margen a cada lado */
+  margin: 2rem auto;               /* centra horizontalmente */
+}
+
+/* ===== Campos estilo “píldora” ===== */
+.form-control {
+  background-color: #f0f0f0;
+  border: 2px solid var(--green);
+  border-radius: 999px;
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  outline: none;
+  appearance: none;
+}
+
+/* Flecha custom para selects dentro de .form-control */
+form select.form-control {
+  background-image: url('data:image/svg+xml;charset=US-ASCII,\
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5">\
+<path fill="%23000" d="M0,0l5,5l5,-5z"/>\
+</svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 10px 5px;
+  cursor: pointer;
+}
+
+/* ===== Checkbox “Activo” centrado y estilo píldora ===== */
+.form-check {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.form-check label {
+  background-color: #f0f0f0;
+  border: 2px solid var(--green);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.form-check input[type="checkbox"] {
+  margin-right: 0.5rem;
+  width: auto;
+  height: auto;
+}
+
+/* ===== Botón “Crear usuario” centrado y estilo píldora ===== */
+.form-grid .full-width {
+  text-align: center;
+}
+
+.form-grid .full-width .btn-primary {
+  display: inline-block;          /* respeta width auto */
+  margin: 0 auto;                 /* centro absoluto */
+  background-color: var(--green) !important;
+  color: #fff !important;
+  border: 2px solid var(--green) !important;
+  border-radius: 999px !important;
+  padding: 0.5rem 1.5rem !important;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form-grid .full-width .btn-primary:hover {
+  opacity: 0.9;
+}
 
 /* ===== Espacio extra antes del footer en móvil ===== */
 @media (max-width: 768px) {

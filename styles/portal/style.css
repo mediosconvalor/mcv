@@ -24,10 +24,10 @@ h1, h2, h3, .welcome__title {
   margin: 0;
   padding: 0;
 }
-body, html {
-  height: 100%;
+html, body {
+  height: auto;
   width: 100%;
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
 }
 

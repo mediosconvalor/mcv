@@ -27,6 +27,7 @@ h1, h2, h3, .welcome__title {
 html, body {
   height: auto;
   width: 100%;
+  margin: 0;
   overflow-y: auto;
   position: relative;
 }
@@ -34,6 +35,9 @@ html, body {
 /* ===== Fondo por defecto ===== */
 body {
   background-color: #e8ecec;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* ===== Capa semitransparente ===== */
@@ -165,24 +169,21 @@ body.sidebar-open .hamburger {
 
 /* ===== Footer ===== */
 .footer {
-  /* elimina position: fixed y bottom */
-  position: relative;  /* o simplemente quítalo */
-  bottom: auto;
-  left: 0;
-  right: 0;
+  position: relative;    /* lo sacamos de fixed */
+  margin-top: auto;      /* empuja el footer al fondo en layout flex */
   background-color: var(--green);
   color: #4A4A63;
   font-size: 0.9rem;
   text-align: center;
-  padding: 0.75rem 0;  /* un poco de espacio arriba y abajo */
+  padding: 0.75rem 1rem;  /* espacio arriba y abajo */
   box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
   z-index: 1000;
-  margin-top: 2rem;   /* separa el footer del contenido */
 }
+
+/* Contenedor interno del footer */
 .footer__inner {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 .footer a {
   color: inherit;

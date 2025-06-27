@@ -311,11 +311,9 @@ body.sidebar-open .hamburger {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  /* elimina sombras si quieres un look más plano */
   box-shadow: none;
 }
 
-/* Encabezado verde con texto blanco y bordes verdes */
 .table thead th {
   background-color: #00C13F;
   color: #fff;
@@ -325,19 +323,16 @@ body.sidebar-open .hamburger {
   border: 1px solid #00C13F;
 }
 
-/* Celdas del cuerpo con borde gris suave */
 .table tbody td {
   padding: 0.75rem 1rem;
   border: 1px solid #ddd;
   color: #333;
 }
 
-/* Hover de filas */
 .table tbody tr:hover {
   background-color: #f9f9f9;
 }
 
-/* Enlaces de acción en color oscuro */
 .action-link {
   color: #004080;
   text-decoration: none;
@@ -346,7 +341,6 @@ body.sidebar-open .hamburger {
   text-decoration: underline;
 }
 
-/* QR con borde ligero */
 .qr-code {
   width: 80px;
   height: 80px;
@@ -354,19 +348,54 @@ body.sidebar-open .hamburger {
   border-radius: 4px;
 }
 
-
+/* ===== Contenedor y separación de página ===== */
 .table-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
+
+/* ===== Título de sección ===== */
+.page-title {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+/* ===== Buscador y botón ===== */
 .page-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
+
 .search-input {
   flex: 1;
 }
+
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+/* ===== Bordes redondeados de tabla ===== */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table thead th {
+  border-radius: 8px 8px 0 0;
+}
+
+.table tbody tr:last-child td {
+  border-radius: 0 0 8px 8px;
+}
+
+/* ===== Espacio extra antes del footer en móvil ===== */
+@media (max-width: 768px) {
+  main.container {
+    padding-bottom: 4rem;
+  }
 }

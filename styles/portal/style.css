@@ -353,3 +353,20 @@ body.sidebar-open .hamburger {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+
+.table-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.page-actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.search-input {
+  flex: 1;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}

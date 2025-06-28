@@ -512,6 +512,7 @@ form select.form-control {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .form-check label {
@@ -550,6 +551,22 @@ form select.form-control {
 
 .form-grid .full-width .btn-primary:hover {
   opacity: 0.9;
+}
+/* ===== Botón secundario ===== */
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--green);
+  border: 2px solid var(--green);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--green);
+  color: var(--white);
 }
 
 /* ===== Espacio extra antes del footer en móvil ===== */

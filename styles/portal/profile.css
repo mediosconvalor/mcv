@@ -1,0 +1,116 @@
+body {
+    background: #f5f7fa;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 36px auto 28px auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px #2b36461a;
+    padding: 2.2rem 2.5rem 2rem 2.5rem;
+    text-align: center;
+}
+
+.profile-avatar-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    background: #f1f1f7;
+    margin-bottom: 10px;
+}
+
+.upload-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0 12px 0;
+}
+.custom-file-input {
+    display: none;
+}
+.custom-file-label {
+    background: #e9f2fd;
+    border: 1px solid #b3d6fb;
+    color: #2374ad;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0;
+    transition: background .15s;
+    user-select: none;
+}
+.custom-file-label:hover {
+    background: #d6e8fb;
+}
+.btn {
+    padding: 8px 22px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.18s;
+    margin-left: 2px;
+    margin-top: 0;
+}
+.btn:hover, .btn:focus {
+    background: #005bbf;
+}
+.btn-secondary {
+    background: #e5e8f1;
+    color: #222;
+    border: none;
+}
+.btn-secondary:hover {
+    background: #d0d7e3;
+}
+.alert {
+    border-radius: 8px;
+    padding: 13px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+.alert-success {
+    background: #e6fae6;
+    color: #1a612a;
+    border: 1px solid #a6dfae;
+}
+.alert-danger {
+    background: #ffe6e6;
+    color: #951616;
+    border: 1px solid #e9b1b1;
+}
+.profile-info {
+    text-align: left;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+.profile-info h2 {
+    font-size: 1.08rem;
+    margin-top: 1.2rem;
+}
+.profile-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+@media (max-width: 750px) {
+    .profile-container { padding: 1rem; }
+    .avatar-img { width: 90px; height: 90px; }
+    .profile-info { font-size: 0.95rem; }
+}

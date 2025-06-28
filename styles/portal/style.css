@@ -575,3 +575,15 @@ form select.form-control {
     padding-bottom: 4rem;
   }
 }
+
+/* === Mejora el scroll en móvil === */
+.table-responsive {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* === Forzar quiebre de palabras largas === */
+.table tbody td {
+  /* para nombres de archivo larguísimos */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
